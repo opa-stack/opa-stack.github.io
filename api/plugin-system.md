@@ -1,6 +1,10 @@
-# Plugins
+---
+sidebarDepth: 4
+---
 
-Plugins are powerfull and should cover most use-cases.
+# Plugin system
+
+The plugin-system are powerfull and should cover most use-cases.
 
 
 ## Adding plugin-paths

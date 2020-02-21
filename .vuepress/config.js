@@ -46,7 +46,7 @@ module.exports = {
 
             '/api/': [
                 '',
-                'plugins',
+                'plugin-system',
             ]
         }
     },
