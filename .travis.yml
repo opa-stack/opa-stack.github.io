@@ -8,7 +8,7 @@ cache:
 
 branches:
   only:
-    - master
+    - source
 
 install: yarn
 script: yarn build
@@ -17,8 +17,8 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  target-branch: gh-pages
+  target-branch: master
   local-dir: .vuepress/dist
   keep_history: false
   on:
-    branch: master
+    branch: source
