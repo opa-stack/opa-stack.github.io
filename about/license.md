@@ -1,5 +1,0 @@
-# License
-
-something
-
-abc

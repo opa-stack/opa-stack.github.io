@@ -7,6 +7,7 @@ module.exports = {
         lastUpdated: 'Last Updated',
         repo: 'opa-stack/opa-stack',
         docsRepo: 'opa-stack/opa-stack.github.io',
+        docsBranch: 'source',
         editLinks: true,
         displayAllHeaders: true,
         nav: [{
@@ -30,15 +31,17 @@ module.exports = {
                 ]
             },
             {
-                text: 'About',
-                link: '/about/'
+                text: 'Learn more',
+                link: '/more-info/'
             },
         ],
         sidebar: {
-            '/about/': [
+            '/guide/': [
+                ''
+            ],
+            '/more-info/': [
                 '',
-                'contact',
-                'license'
+                'contact'
             ],
 
             '/api/': [

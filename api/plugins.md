@@ -8,7 +8,7 @@ Plugins are powerfull and should cover most use-cases.
 To use a custom plugin-folder, populate the configuration named `PLUGIN_PATHS` with a comma-separated-list of path's.
 
 ::: tip
-The path `/data/itap/plugins` will always be appened, this is because we use plugins internally as well. However, they can easiely be overridden if wanted.
+The path `/data/opa/plugins` will always be appened, this is because we use plugins internally as well. However, they can easiely be overridden if wanted.
 :::
 
 ## File-structure
@@ -34,8 +34,8 @@ To get this to work
 * `PLUGIN_PATH`: Comma separated list of paths to load from.
 
 * `PLUGIN_ALLOWED` (default: ""): Regex of plugins to allow. It will match against the plugin-path, and the module-name. Example-paths it will need to match against
-  * `/data/itap/demo-plugins/demo_noop`: For the file inside `/data/itap/demo-plugins` named `demo_noop.py`
-  * `/data/itap/demo-plugins/demo_model`: For the `demo_model` package (a folder with an `__init__.py` file)
+  * `/data/opa/demo-plugins/demo_noop`: For the file inside `/data/opa/demo-plugins` named `demo_noop.py`
+  * `/data/opa/demo-plugins/demo_model`: For the `demo_model` package (a folder with an `__init__.py` file)
 
 ::: tip
 The default regex will match everything, so you can use ordering and overriding instead.
