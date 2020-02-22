@@ -11,6 +11,7 @@ The requirements was therefor more or less:
 * Job queue for things that might take time or you want custom schedule
 * Good self-documenting api endpoints for building other tools on. rest, graphql and websocket out of the box
 * Be dynamic enough to support multiple instances of it running, with some optional communication between them. (Example for different security contexts)
+* Good support for an out-of-the-box k8s deployment, including scalability
 
 You can read more about the main part of the stack (the **api**) on the [api](/api) page.
 
