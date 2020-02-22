@@ -6,6 +6,11 @@ sidebarDepth: 4
 
 The plugin-system are powerfull and should cover most use-cases.
 
+::: tip
+If you want to peak at code that drives the plugin-system, it's on [github](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/core/plugin.py) or just expand it here
+::: details plugin.py
+<<< @/opa-stack/api/data/opa/core/plugin.py
+:::
 
 ## Adding plugin-paths
 
