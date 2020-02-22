@@ -1,0 +1,3 @@
+[submodule "opa-stack"]
+	path = opa-stack
+	url = https://github.com/opa-stack/opa-stack
