@@ -24,7 +24,10 @@ The path `/data/opa/plugins` will always be appened, this is because we use plug
 
 When loading plugins, we uses `PLUGIN_PATHS` to find possible plugins. We will load both plugins that are single files, but also packages containing an `__init__.py`.
 
-The order is important, and your plugin-name (filename, foldername), must match the regex in `PLUGIN_ALLOWED`, see below for more info.
+The order is important, and your plugin-name (filename, foldername), must match
+* the regex in `PLUGIN_WHITELIST_RE`
+* be in the csv list `PLUGIN_WHITELIST_LIST` (if not populated, the whole list is ignored)
+* not be in the csv list `PLUGIN_BLACKLIST_LIST` (if not populated, the whole list is ignored)
 
 The loading behaves the same way python does when importing. The first `PLUGIN_PATHS` containing the package wins, ie, you can easiely override other plugins, or make yourself multiple folders to load plugins from. This might be usefull in cases where
 
@@ -42,12 +45,14 @@ To get this to work
 
 * `PLUGIN_PATH`: Comma separated list of paths to load from.
 
-* `PLUGIN_ALLOWED` (default: ""): Regex of plugins to allow. It will match against the plugin-path, and the module-name. Example-paths it will need to match against
-  * `/data/opa/demo-plugins/demo_noop`: For the file inside `/data/opa/demo-plugins` named `demo_noop.py`
-  * `/data/opa/demo-plugins/demo_model`: For the `demo_model` package (a folder with an `__init__.py` file)
+* `PLUGIN_WHITELIST_RE` (default: ""): Regex of plugins to allow. 
+* `PLUGIN_WHITELIST_LIST` (default: ""): csv of whitelisted plugins. If value is not set, this list is ignored.
+* `PLUGIN_BLACKLIST_LIST` (default: ""): csv of blacklisted plugins. If value is not set, this list is ignored.
 
 ::: tip
-The default regex will match everything, so you can use ordering and overriding instead.
+All matchers will match against the plugin-path, and the module-name. Example-paths it will need to match against
+  * `/data/opa/demo-plugins/demo_noop`: For the file inside `/data/opa/demo-plugins` named `demo_noop.py`
+  * `/data/opa/demo-plugins/demo_model`: For the `demo_model` package (a folder with an `__init__.py` file)
 :::
 
 ## Making a plugin
