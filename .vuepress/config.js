@@ -10,6 +10,10 @@ module.exports = {
         docsBranch: 'source',
         editLinks: true,
         displayAllHeaders: true,
+        algolia: {
+            apiKey: '36d3bfffffae8b75ccbbdf5af03813ee',
+            indexName: 'opa-stack'
+        },
         nav: [{
                 text: 'Home',
                 link: '/'
