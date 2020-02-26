@@ -68,11 +68,13 @@ The `A` is for API or Automation, or both. You choose :smirk:
       * [uvicorn](https://www.uvicorn.org/) as asgi server
       * [Pydantic](https://pydantic-docs.helpmanual.io/) for api modelling
     * [motor](https://motor.readthedocs.io/) for comminicating with mongo
+    * [dynaconf](https://dynaconf.readthedocs.io/) for configuration management
 
 * Docs
   * [vuepress](vuepress.vuejs.org/) for generating [docs](https://github.com/opa-stack/opa-stack.github.io)
   * [yarn](https://yarnpkg.com/) to keep track of packages/plugins
-  * Google analytics to see how it goes
+  * [Google analytics](https://analytics.google.com/) to see some site-stats
+  * [Algolia](https://www.algolia.com/ref/docsearch/) for searching
 
 * Development
   * Everything under [github](https://github.com/opa-stack)
