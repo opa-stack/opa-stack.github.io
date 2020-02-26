@@ -43,11 +43,24 @@ To get this to work
 
 ## Configuration
 
-* `PLUGIN_PATH`: Comma separated list of paths to load from.
+::: tip
+You can configure the variables below multiple ways. Variables ending in `_LIST` can will be converted to a list using `csv` (comma separated values).
+:::
 
-* `PLUGIN_WHITELIST_RE` (default: ""): Regex of plugins to allow. 
-* `PLUGIN_WHITELIST_LIST` (default: ""): csv of whitelisted plugins. If value is not set, this list is ignored.
-* `PLUGIN_BLACKLIST_LIST` (default: ""): csv of blacklisted plugins. If value is not set, this list is ignored.
+* `PLUGIN_PATH`: Comma separated list of paths to potentially load plugins from.
+
+If plugins should be loaded or not can be defined multiple different ways. There are many ways to cover many usecases.
+Please **don't** overuse these settings. They are not ment to be used all at once!
+
+The settings are only active if they are defined, that means that we will not use the blacklist, unless there are anything there.
+Same with the other settings.
+
+* `PLUGIN_WHITELIST_LIST` (default: ""): List of whitelisted plugins to load.
+* `PLUGIN_WHITELIST_RE` (default: ""): Regex of whitelisted plugins to load. 
+
+* `PLUGIN_BLACKLIST_LIST` (default: ""): List of blacklisted plugins to not load.
+* `PLUGIN_BLACKLIST_RE` (default: ""): Regex of blacklisted plugins to not load. 
+
 
 ::: tip
 All matchers will match against the plugin-path, and the module-name. Example-paths it will need to match against
