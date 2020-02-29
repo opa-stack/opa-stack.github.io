@@ -27,6 +27,8 @@ When loading plugins, we uses `PLUGIN_PATHS` to find possible plugins. We will l
 The order is important, and your plugin-name (filename, foldername), must match
 * the regex in `PLUGIN_WHITELIST_RE`
 * be in the csv list `PLUGIN_WHITELIST_LIST` (if not populated, the whole list is ignored)
+
+* not match the regex in `PLUGIN_BLACKLIST_RE`
 * not be in the csv list `PLUGIN_BLACKLIST_LIST` (if not populated, the whole list is ignored)
 
 The loading behaves the same way python does when importing. The first `PLUGIN_PATHS` containing the package wins, ie, you can easiely override other plugins, or make yourself multiple folders to load plugins from. This might be usefull in cases where
@@ -34,25 +36,21 @@ The loading behaves the same way python does when importing. The first `PLUGIN_P
 * You need multiple instances of opa-stack running, example each in it's own zone.
 * You want most of them the same, but you still want one of them to have some extra functionality.
 
-To get this to work
+To build an environment like that
 
-* Build 1 `common` version and have a `PLUGIN_PATH` like `/plugins/common`
+* Build 1 `common` version and use a `PLUGIN_PATH` of `/plugins/common`
 
   * zone-normal builds from common
-  * zone-secure builds from common, but change `PLUGIN_PATH` to `/plugins/common,/plugins/secure`.
+  * zone-secure builds from common, but adds your `/plugins/secure` item to `PLUGIN_PATH`. See this [example](configuration.html#file-with-different-environments) for how to do this
 
 ## Configuration
 
-::: tip
-You can configure the variables below multiple ways. Variables ending in `_LIST` can will be converted to a list using `csv` (comma separated values).
-:::
-
-* `PLUGIN_PATH`: Comma separated list of paths to potentially load plugins from.
+* `PLUGIN_PATH`: List of paths to potentially load plugins from, default is `/data/opa/plugins`
 
 If plugins should be loaded or not can be defined multiple different ways. There are many ways to cover many usecases.
 Please **don't** overuse these settings. They are not ment to be used all at once!
 
-The settings are only active if they are defined, that means that we will not use the blacklist, unless there are anything there.
+The settings are only active if they are defined, that means that we will not use the blacklist, unless it is defined.
 Same with the other settings.
 
 * `PLUGIN_WHITELIST_LIST` (default: ""): List of whitelisted plugins to load.
@@ -61,6 +59,7 @@ Same with the other settings.
 * `PLUGIN_BLACKLIST_LIST` (default: ""): List of blacklisted plugins to not load.
 * `PLUGIN_BLACKLIST_RE` (default: ""): Regex of blacklisted plugins to not load. 
 
+The default settings means that **ALL** available plugins (in the paths) will be loaded by default. Which might be just what you want.
 
 ::: tip
 All matchers will match against the plugin-path, and the module-name. Example-paths it will need to match against

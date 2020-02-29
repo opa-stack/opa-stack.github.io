@@ -50,6 +50,7 @@ module.exports = {
 
             '/api/': [
                 '',
+                'configuration',
                 'plugin-system',
             ]
         }
