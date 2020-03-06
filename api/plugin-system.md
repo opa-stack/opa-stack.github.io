@@ -37,6 +37,18 @@ We will ONLY care about the first one. Even if the first one is going to get ign
 ## Configuration
 
 * `PLUGIN_PATH`: List of paths to potentially load plugins from, default is `/data/opa/plugins`
+This is an array, and will be overwritten if you define a new value, to merge yours with the default, write, example
+
+```yaml
+default:
+  PLUGIN_PATHS:
+    - "/extra_plugins"
+    - dynaconf_merge
+```
+
+::: tip
+If you want to define this value using an environment-variable, you can define it as a string (`OPA_PLUGIN_PATHS='/plugins'`) or a list, (`OPA_PLUGIN_PATHS='["/plugins", "/more_plugins"]'`)
+:::
 
 If plugins should be loaded or not can be defined multiple different ways. There are many ways to cover many usecases.
 Please **don't** overuse these settings. They are not ment to be used all at once!
