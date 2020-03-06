@@ -20,18 +20,42 @@ module.exports = {
             },
             {
                 text: 'Guide',
-                link: '/guide/'
-            },
-            {
-                text: 'References',
-                items: [{
-                        text: 'API',
-                        link: '/api/'
+                items: [
+                    {
+                        text: 'Intro',
+                        link: '/guide/index'
                     },
-                    // {
-                    //     text: 'CLI',
-                    //     link: '/cli/'
-                    // }
+                    {
+                        text: 'Development',
+                        items: [{
+                                text: 'Info',
+                                link: '/guide/development'
+                            },
+                            {
+                                text: 'Optional components',
+                                link: '/guide/optional-components'
+                            },
+                            {
+                                text: 'Creating a new project',
+                                link: '/guide/new-project'
+                            },
+                            {
+                                text: 'Example projects',
+                                link: '/guide/examples'
+                            },
+                        ]
+                    }, {
+                        text: 'API details',
+                        items: [{
+                                text: 'Configuration',
+                                link: '/guide/api/configuration'
+                            },
+                            {
+                                text: 'Plugin system',
+                                link: '/guide/api/plugin-system'
+                            },
+                        ]
+                    }
                 ]
             },
             {
@@ -42,21 +66,33 @@ module.exports = {
         sidebar: {
             '/guide/': [
                 '',
-                'new-project',
-                'optional-components',
-                'examples',
-                'development'
-            ],
-            '/more-info/': [
-                '',
-                'contact'
-            ],
+                {
+                    title: 'Development',
+                    collapsable: true,
+                    children: [
+                        ['development', 'Info'],
+                        'optional-components',
+                        'new-project',
+                        'examples'
 
-            '/api/': [
-                '',
-                'configuration',
-                'plugin-system',
-            ]
+                    ]
+                },
+
+                {
+                    title: 'API details',
+                    collapsable: true,
+                    children: [
+                        'api/configuration',
+                        'api/plugin-system'
+                    ]
+                }
+            ],
+            '/more-info/': {
+                children: [
+                    '',
+                    'contact'
+                ],
+            }
         }
     },
     plugins: [
