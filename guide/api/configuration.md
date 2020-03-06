@@ -25,6 +25,21 @@ See the examples below and you will see how you can have specific config only ac
 
 You can set the environment using the `ENV` environment variable to whichever environment you want. Note that the default variables is still set, but they can be overridden by the environments configuration.
 
+### Special environments
+
+#### dev
+
+If you set `dev` as the `ENV`, you will get:
+
+* A webserver that reloads on file-changes
+* PTVSD enabled ([Python Tools for Visual Studio debug server](https://github.com/Microsoft/ptvsd/))
+* [better exceptions](https://github.com/Qix-/better-exceptions)
+* `/data/opa/demo-plugins` ([github code](https://github.com/opa-stack/opa-stack/tree/master/api/data/opa/demo-plugins)) enabled
+
+::: tip
+Take a look at the [development guide](/guide/development) for more info about how to leverage what dev-mode enables.
+:::
+
 ## Examples
 
 ### Using a file mounted

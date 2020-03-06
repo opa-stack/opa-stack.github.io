@@ -87,12 +87,10 @@ module.exports = {
                     ]
                 }
             ],
-            '/more-info/': {
-                children: [
+            '/more-info/': [
                     '',
                     'contact'
-                ],
-            }
+            ]
         }
     },
     plugins: [

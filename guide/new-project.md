@@ -6,3 +6,11 @@ There are multiple ways to run it, so choose whatever orchestrator fits you best
 There are also some [optional components](./optional-components) you can use together with opa-stack if you want caching, db or and so on.
 
 
+## Orchestrators
+
+### docker-compose
+
+Take a look at FIXME for some example-projects that uses docker-compose.
+
+### kubernetes (helm)
+

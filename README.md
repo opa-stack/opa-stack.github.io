@@ -21,7 +21,7 @@ But please contact me if you got ideas or feedback.
 :::
 
 
-If you want to know more about the project goals before diving in, take a logg at the [more info](/more-info) page
+If you want to know more about the project goals before diving in, take a look at the [more info](/more-info) page
 
 |  | Status |
 | --- | --- |
