@@ -41,7 +41,11 @@ module.exports = {
         ],
         sidebar: {
             '/guide/': [
-                ''
+                '',
+                'new-project',
+                'optional-components',
+                'examples',
+                'development'
             ],
             '/more-info/': [
                 '',
