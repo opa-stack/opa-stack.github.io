@@ -10,7 +10,11 @@ There are also some [optional components](./optional-components) you can use tog
 
 ### docker-compose
 
-Take a look at FIXME for some example-projects that uses docker-compose.
+Docker-compose is the simplest of the container orchestrators. You can download it from [here](https://docs.docker.com/compose/install/), and read the getting started guide [here](https://docs.docker.com/compose/gettingstarted/).
+
+Take a look at the simplest example project [here](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hello-world).
+In the folder just run `docker-compose up`, and you got things running.. See the [docker-compose docs](https://docs.docker.com/compose/) for more info.
 
 ### kubernetes (helm)
 
+Nothing here yet...
