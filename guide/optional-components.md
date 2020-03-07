@@ -11,7 +11,7 @@ Most of the items below are just for future references, they are NOT implemented
 Very often, you need a cache available.
 
 ```py
-from opa.extra import redis
+from opa.utils import redis
 
 redis.RedisClient
 redis.get
