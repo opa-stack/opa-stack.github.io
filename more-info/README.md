@@ -12,6 +12,8 @@ The requirements was therefor more or less:
 * Good self-documenting api endpoints for building other tools on. rest, graphql and websocket out of the box
 * Be dynamic enough to support multiple instances of it running, with some optional communication between them. (Example for different security contexts)
 * Good support for an out-of-the-box k8s deployment, including scalability
+* A way to do almost everything via plugins
+* An optional component system where you can just attach some additional services, like redis, and have it working
 
 
 ## FAQ
