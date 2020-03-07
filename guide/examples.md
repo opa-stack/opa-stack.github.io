@@ -22,7 +22,7 @@ The first example is a simple docker-compose setup where you will
 * Uses docker-compose
 * Use only the api container
 * Expose output from a simple command on `/hello`
-* Mount the plugins from a local plugin-folder, configuring it so it overwrites the default plugin location (ie, some things wont work...)
+* Mount the plugins from a local plugin-folder.
 
 * Things to try
   * http://127.0.0.1:8001/hello - The output of the route in `hello.py`
@@ -49,8 +49,7 @@ This example is still simple, but shows you how to do a little bit more, includi
 * Expose output on `/month/{month}` that converts a number (1-12) to month-name. Crashes if it is not able to...
 * Expose output on `/sleep-async/{seconds}` that sleeps.. This is an async function
 * Expose output on `/sleep-sync/{seconds}` that sleeps.. This is not an async function..
-* Mount the plugins from a local plugin-folder, watches them for changes. Configuring it so it merges in the default plugin location as well
-  * Merging is required for some things to work, like some of the helpers available in dev-mode
+* Mount the plugins from a local plugin-folder, watches them for changes.
 * Sets the environment to `DEV` (see [docs](api/configuration.html#dev) for more info)
   * In addition to other things, enabling `DEV` gives some neat developing features.. Check [here](development.html#development-mode-env-dev) for more info how to leverage them
 

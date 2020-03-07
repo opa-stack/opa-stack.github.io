@@ -17,7 +17,7 @@ If you want to peak at code that drives the plugin-system, it's on [github](http
 To use a custom plugin-folder, populate the configuration named `PLUGIN_PATHS` with a comma-separated-list of path's.
 
 ::: tip
-The path `/data/opa/plugins` will always be appened, this is because we use plugins internally as well. However, they can easiely be overridden if wanted.
+The path `/data/opa/plugins` will always be appened, this is because we use plugins internally as well. However, they can easiely be overridden if wanted as they are appended as the last item in the list.
 :::
 
 ## File-structure
@@ -36,8 +36,8 @@ We will ONLY care about the first one. Even if the first one is going to get ign
 
 ## Configuration
 
-* `PLUGIN_PATH`: List of paths to potentially load plugins from, default is `/data/opa/plugins`
-This is an array, and will be overwritten if you define a new value, to merge yours with the default, write, example
+* `PLUGIN_PATH`: List of paths to potentially load plugins from, default `[]`, ie, only `/data/opa/plugins` (as it is always there..).
+This is an array, and can be overwritten if you define it multiple places, to merge multiple entries, write, example
 
 ```yaml
 default:
