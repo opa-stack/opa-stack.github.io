@@ -1,9 +1,13 @@
 # Configuration
 
-We are using [dynaconf](https://dynaconf.readthedocs.io/) for configuration management and the default config is:
+We are using [dynaconf](https://dynaconf.readthedocs.io/) for configuration management and the default config on [github](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/default-settings.yaml) or embedded below..:
 
 ::: details /data/opa/default-settings.yaml
 <<< @/opa-stack/api/data/opa/default-settings.yaml
+:::
+
+::: warning
+The configuration is documenented in this file. All possible configuration is in it, so that is the reference.. Each configuration is not documented on this page.
 :::
 
 Dynaconf have a lot of ways to set configuration using files and/or environment-variables. They have very good documentation, so take a look at their page for tips if you need anything special.
@@ -16,6 +20,7 @@ The settings we use for dynaconf is:
 * `INCLUDES_FOR_DYNACONF`: Is `['/data/opa/default-settings.yaml', '*.yaml', '*.json', '*.py', '*.ini', '*.toml']`. So those are the settings loaded in that order.
 
 Configurig opa-stack can therefor be done in a bunch of ways, see some [examples](#examples) below
+
 
 ## Environment
 
