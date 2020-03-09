@@ -19,13 +19,14 @@ Because it exists, this doc won't be about deep things you can do with FastAPI
 
 The first example is a simple docker-compose setup where you will
 
-* Uses docker-compose
-* Use only the api container
-* Expose output from a simple command on `/hello`
-* Mount the plugins from a local plugin-folder.
+* Setup
+  * Uses docker-compose
+  * Use only the api container
+  * Expose output from a simple command on `/hello`
+  * Mount the plugins from a local plugin-folder.
 
-* Things to try
-  * http://127.0.0.1:8001/hello - The output of the route in `hello.py`
+  * Things to try
+    * http://127.0.0.1:8001/hello - The output of the route in `hello.py`
 
 ### Files
 
@@ -43,15 +44,16 @@ The first example is a simple docker-compose setup where you will
 
 This example is still simple, but shows you how to do a little bit more, including a better development environment.
 
-* Uses docker-compose
-* Using only the api container
-* Expose output on `/time` that also accept some parameters
-* Expose output on `/month/{month}` that converts a number (1-12) to month-name. Crashes if it is not able to...
-* Expose output on `/sleep-async/{seconds}` that sleeps.. This is an async function
-* Expose output on `/sleep-sync/{seconds}` that sleeps.. This is not an async function..
-* Mount the plugins from a local plugin-folder, watches them for changes.
-* Sets the environment to `DEV` (see [docs](api/configuration.html#dev) for more info)
-  * In addition to other things, enabling `DEV` gives some neat developing features.. Check [here](development.html#development-mode-env-dev) for more info how to leverage them
+* Setup
+  * Uses docker-compose
+  * Using only the api container
+  * Expose output on `/time` that also accept some parameters
+  * Expose output on `/month/{month}` that converts a number (1-12) to month-name. Crashes if it is not able to...
+  * Expose output on `/sleep-async/{seconds}` that sleeps.. This is an async function
+  * Expose output on `/sleep-sync/{seconds}` that sleeps.. This is not an async function..
+  * Mount the plugins from a local plugin-folder, watches them for changes.
+  * Sets the environment to `DEV` (see [docs](api/configuration.html#dev) for more info)
+    * In addition to other things, enabling `DEV` gives some neat developing features.. Check [here](development.html#development-mode-env-dev) for more info how to leverage them
 
 * Things to try
   * http://127.0.0.1:8001/time - Should show you the time in the default format
@@ -75,4 +77,30 @@ This example is still simple, but shows you how to do a little bit more, includi
 
 ::: details plugins/timekeeper.py
 <<< @/opa-stack/examples/docker-compose/timekeeper/plugins/timekeeper.py
+:::
+
+## Redis
+
+Example using redis (both async and normal), using two different libs (aioredis and walrus), see [optional-dependencies](optional-components/#redis) for more info.
+
+* Setup
+  * Uses docker-compose
+  * Using the api container, and a redis-container
+  * Expose output on `/counter-async` increments when you visit using aioredis
+  * Expose output on `/counter-sync` increments when you visit using walrus
+  * Expose output to GET and POST on `/bloom`, one to add entries to a bloom-filter (using walrus) and one to check. Walrus have a ton of neat feature, this is one of them.
+
+* Things to try
+  * http://127.0.0.1:8001/counter-async - See a counter
+
+### Files
+
+* Files at github: [https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/redis](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/redis)
+
+::: details docker-compose.yaml
+<<< @/opa-stack/examples/docker-compose/redis/docker-compose.yaml
+:::
+
+::: details plugins/timekeeper.py
+<<< @/opa-stack/examples/docker-compose/redis/plugins/redisfun.py
 :::
