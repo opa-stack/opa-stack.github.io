@@ -15,9 +15,8 @@ features:
 footer: MIT Licensed
 ---
 
-::: danger
-This prosject is not yet usable.. It is in it's infancy and startup.
-But please contact me if you got ideas or feedback.
+::: warning
+This prosject is very young and might not be usable just yet... Give feedback!
 :::
 
 
