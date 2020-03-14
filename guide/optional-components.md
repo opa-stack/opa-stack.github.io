@@ -4,6 +4,18 @@ opa-stack looks for some components when it starts, if it can find them, it incl
 
 Configuration is done using the `OPTIONAL_COMPONENTS` key in the configuration. Please find it, on [github](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/default-settings.yaml), or view the file here..
 
+::: info
+You must use dynaconf merge when changing these parameters.. Example
+
+```yaml
+myenv:
+  OPTIONAL_COMPONENTS:
+    dynaconf_merge: true
+    REDIS:
+      URL: "redis://another-redis-server"
+```
+:::
+
 ::: details docker-compose.yaml
 <<< @/opa-stack/api/data/opa/default-settings.yaml
 :::
