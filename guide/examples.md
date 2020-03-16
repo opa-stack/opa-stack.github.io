@@ -104,3 +104,50 @@ Example using redis (both async and normal), using two different libs (aioredis 
 ::: details plugins/timekeeper.py
 <<< @/opa-stack/examples/docker-compose/redis/plugins/redisfun.py
 :::
+
+## Background tasks
+
+Background tasks are built into FastAPI/Starlette. If you come from the sync-world, you are probably used to Celery.
+Celery complicates a lot, so if you just got a simple fire-and-forget job. A background-task might fit your needs.
+
+See [below](#celery-task) for info about running a celery task.
+
+* Setup
+  * Uses docker-compose
+  * Using the api container
+  * Uses redis for locking and keeping track of a string (not needed for running tasks where you don't care about results)
+  * Runs background tasks using [FastAPI](https://fastapi.tiangolo.com/tutorial/background-tasks/)'s [starlette background tasks](https://www.starlette.io/background/)
+  * Let you POST to `/runone` to put a task to the queue, it runs for 4 seconds
+  * Expose output on `/runone` to see status of which task is currently running
+
+* Things to try
+  * Terminal 1 - Status
+    * `while true; do curl http://localhost:8001/runone; echo; sleep 1; done`
+  * Terminal 2 - Trigger new tasks, try triggering many, see they queue up on terminal 1
+    * curl -X POST http://localhost:8001/runone
+
+### Files
+
+* Files at github: [https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/background-task](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/background-task)
+
+::: details docker-compose.yaml
+<<< @/opa-stack/examples/docker-compose/background-task/docker-compose.yaml
+:::
+
+::: details plugins/tasks.py
+<<< @/opa-stack/examples/docker-compose/background-task/plugins/tasks.py
+:::
+
+## Celery task
+
+::: warning
+Not implemented yet
+:::
+
+[Celery](http://www.celeryproject.org/) is a very powerfull distributed task-queue. It is much more feature-rich than the default background tasks available in FastAPI/Starlette.
+
+* Setup
+  * Uses docker-compose
+  * Uses the api-container
+  * Redis for storing task-results
+  * Rabbitmq for keeping track of tasks (broker)
