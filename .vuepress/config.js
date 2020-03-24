@@ -32,8 +32,8 @@ module.exports = {
                                 link: '/guide/development'
                             },
                             {
-                                text: 'Optional components',
-                                link: '/guide/optional-components'
+                                text: 'Components (optional)',
+                                link: '/guide/components'
                             },
                             {
                                 text: 'Creating a new project',
@@ -71,8 +71,9 @@ module.exports = {
                     collapsable: true,
                     children: [
                         ['development', 'Info'],
-                        'optional-components',
                         'new-project',
+                        'plugins',
+                        'optional-components-reference',
                         'examples'
 
                     ]

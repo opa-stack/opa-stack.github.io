@@ -51,3 +51,8 @@ Example-configuration (`launch.json`) for vscode if you use docker-compose and e
 * [github](https://github.com/Qix-/better-exceptions)
 
 Get better exception output on the console. It does many things, but one very usefull thing is that it shows you the content of variables inside the different exception frames.
+
+## Plugins
+
+The plugin-system is powerfull, you can read about it [here](./api/plugin-system).
+Since there is a lot to it for developing them, there is a [dedicated](./plugins) page for info about it.

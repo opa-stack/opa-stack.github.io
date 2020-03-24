@@ -73,36 +73,3 @@ The _LIST and _RE matches will match against the plugin-path, and the module-nam
 
 The _TAGS matchers will check for metadata
 :::
-
-## Making a plugin
-
-### Adding functionality
-
-Every `PLUGIN_PATHS` are loaded into pythons `sys.path`. Therefor, you can also have plugins that exposes functionality to other plugins.
-So, if you got
-
-* `/plugins/common/math_utils.py` with a function `double()`
-* `/plugins/secure/grade_calculations.py` that adds a route. It can use `from math_utils import double` without problems
-
-### hooks
-
-### Config
-
-### Metadata
-
-A plugin can have metadata attached to it in form of a `json` file.
-* If it's a flat `.py` file. Create a file with `-meta.json`
-  * Exammple on `my_utils.py` you will have `my_utils-meta.json`
-* If it is a python package, make `/meta.json` in the same folder as the package.
-
-Currently, you can only define tags as metadata, which can be used for filtering (`PLUGIN_WHITELIST_TAGS` and `PLUGIN_BLACKLIST_TAGS`) which plugins to load.
-
-Example
-
-```json
-{
-  "tags": ["utils", "admin"]
-}
-```
-
-### Examples

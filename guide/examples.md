@@ -81,7 +81,7 @@ This example is still simple, but shows you how to do a little bit more, includi
 
 ## Redis
 
-Example using redis (both async and normal), using two different libs (aioredis and walrus), see [optional-dependencies](optional-components/#redis) for more info.
+Example using redis (both async and normal), using two different libs (aioredis and walrus), see [dependencies](./optional-components-reference.html#redis) for more info.
 
 * Setup
   * Uses docker-compose
