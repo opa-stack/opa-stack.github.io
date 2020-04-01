@@ -170,7 +170,9 @@ In driver_redis you will see that a driver is just a class inherited from `opa.c
   * Is responsible for setting `self.instance`.
 * `validate(self)`:
   * Needs to be async if connect is async
-  * Will run only if the `LOAD` config is `yes` (ie, must be connected)
+  * Will run only if
+    * `LOAD` config is `yes`
+    * or if `.instance` is set 
   * Should raise an exception of any kind if it is not able to validate the connection.
 * `disconnect(self)`: Not implemented yet
 * `get_instance(self)`: Normally it just returns `self.instance`, but if you want, you can override it
