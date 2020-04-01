@@ -7,8 +7,9 @@
 
 * Stop api and run manually
   * s6-svc -dq /var/run/s6/services/api/
-  * cd /data/ && /usr/bin/python3.6 /usr/local/bin/uvicorn opa.main:app --host 0.0.0.0
-    * Use `--log-level debug` if you want debug-logging
+  * cd /data/
+    * uvicorn opa.main:app --host 0.0.0.0
+    * OPA_PLUGIN_PATHS=/opa-stack/examples/docker-compose/celery-task/plugins/ uvicorn opa.main:app --host 0.0.0.0 --log-level debug
 
 ## Resources
 

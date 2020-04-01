@@ -24,20 +24,18 @@ The path `/data/opa/plugins` will always be appened, this is because we use plug
 
 When loading plugins, we uses `PLUGIN_PATHS` to find possible plugins. We will load both plugins that are single files, but also packages containing an `__init__.py`.
 
-The order is important, and your plugin-name (filename, foldername), must match
-* the regex in `PLUGIN_WHITELIST_RE`
-* be in the csv list `PLUGIN_WHITELIST_LIST` (if not populated, the whole list is ignored)
+::: warning
+Make sure the name of your plugin is unique, since we are using the pythons import system when importing it.
+Example.. Don't call your plugin `redis.py` and expect it to work... :) You will probably get some errors down the line.
+:::
 
-* not match the regex in `PLUGIN_BLACKLIST_RE`
-* not be in the csv list `PLUGIN_BLACKLIST_LIST` (if not populated, the whole list is ignored)
-
-The loading behaves the same way python does when importing. The first `PLUGIN_PATHS` containing the package wins, ie, you can easiely override other plugins, or make yourself multiple folders to load plugins from. If there are 2 or more plugins with the same name, both in different paths.
-We will ONLY care about the first one. Even if the first one is going to get ignored by a filter..
+The order when the plugins are loaded is important. If you want to load plugin `myplugin`, and there are 2 files with that name, the first one in the `PLUGIN_PATHS` will win. Just as in normal with `PATH` variables.
+We will ONLY care about the first one. Even if the first one is going to get ignored by a filter (see below)
 
 ## Configuration
 
 * `PLUGIN_PATH`: List of paths to potentially load plugins from, default `[]`, ie, only `/data/opa/plugins` (as it is always there..).
-This is an array, and can be overwritten if you define it multiple places, to merge multiple entries, write, example
+This is an array, and can be overwritten if you define it multiple places, to merge multiple entries, write, example (notice the `dynacon_merge`) ([dynaconf-docs](https://dynaconf.readthedocs.io/))
 
 ```yaml
 default:
@@ -50,11 +48,8 @@ default:
 If you want to define this value using an environment-variable, you can define it as a string (`OPA_PLUGIN_PATHS='/plugins'`) or a list, (`OPA_PLUGIN_PATHS='["/plugins", "/more_plugins"]'`)
 :::
 
-If plugins should be loaded or not can be defined multiple different ways. There are many ways to cover many usecases.
-Please **don't** overuse these settings. They are not ment to be used all at once!
-
-The settings are only active if they are defined, that means that we will not use the blacklist, unless it is defined.
-Same with the other settings.
+If a plugin is loaded or not can be dictated using rules. There are many different filters, and they are all set to allow-as-default.
+You should only use 0, 1 or maybe 2 of the settings.. But feel free to use as many as you like :)
 
 * `PLUGIN_WHITELIST_LIST` (default: []): List of whitelisted plugins to load.
 * `PLUGIN_WHITELIST_RE` (default: ""): Regex of whitelisted plugins to load. 
@@ -67,9 +62,9 @@ Same with the other settings.
 The default settings means that **ALL** available plugins (in the paths) will be loaded by default. Which might be just what you want.
 
 ::: tip
-The _LIST and _RE matches will match against the plugin-path, and the module-name. Example-paths it will need to match against
+The `_LIST` and `_RE` matches will match against the plugin-path, and the module-name. Example-paths it will need to match against
   * `/data/opa/demo-plugins/demo_noop`: For the file inside `/data/opa/demo-plugins` named `demo_noop.py`
   * `/data/opa/demo-plugins/demo_model`: For the `demo_model` package (a folder with an `__init__.py` file)
 
-The _TAGS matchers will check for metadata
+The `_TAGS` matchers will check for metadata
 :::

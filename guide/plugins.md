@@ -4,16 +4,12 @@ sidebarDepth: 3
 
 # Plugins
 
-What we call `plugins` are what is used to use opa-stack.
-
-Plugins are just python packages or modules available to opa-stack. See [general info](./api/plugin-system) about the plugin-system to see how it works.
-
-::: warning
-Make sure the name of your plugin is unique, since we are using the pythons import system when importing it.
-Example.. Don't call your plugin `redis.py` and expect it to work... :) You will probably get some errors down the line.
-:::
+A `plugin` is how you make things using opa-stack.
+They are just python packages or modules available to opa-stack. See [general info](./api/plugin-system) about the plugin-system to see how it works.
 
 ## Types of plugins
+
+Different types of plugins are initialized in different order. Example, all hooks are initialized before drivers are initialized. Drivers are done when setup is run.
 
 ### Importables
 
@@ -24,12 +20,98 @@ So, if you got
 * `/plugins/common/math_utils.py` with a function `double()`
 * `/plugins/secure/grade_calculations.py` that adds a route. It can use `from math_utils import double` without problems
 
-### Optional components
+### Hook Definition
+
+Hooks need to be defined before you can use them, so for this, you need a hook-definition.
+
+A simple example looks like
+
+```py
+from opa.core.plugin import HookDefinition
+
+class name_hook(HookDefinition):
+    required = True
+    is_async = False
+    name = 'fullname'
+```
+
+Parameters:
+* required (default: False): Set to True if you don't want the application to be able to start unless there is a hook for this definition.
+* is_async (default: False): Set to True if the hook should be an async function.
+* name (default: function-name): Override the function-name as the name of the hook.
+
+### Hook
+
+Hooks are used if you want to replace or provide a custom function for a part of your code.
+
+Example, think of a tiny generic app like this:
+
+```py
+from fastapi import Depends, APIRouter
+from opa.core.plugin import (
+    get_plugin_manager,
+    PluginManager,
+    Hook,
+    Setup,
+)
+
+router = APIRouter()
+
+
+@router.get("/get-fullname/{firstname}/{surname}")
+def show_name(
+    firstname: str, surname: str, pm: PluginManager = Depends(get_plugin_manager)
+):
+    fullname = pm.call('fullname', firstname, surname)
+    return {'name': fullname}
+
+
+class MyApp(Setup):
+    def __init__(self, app):
+        app.include_router(router)
+
+```
+
+It calculates `fullname` based on whatever the hook called `fullname` returns.
+The `fullname` is already defined above in `HookDefinition`, so now lets define the function itself in a completly different plugin.
+
+```py
+from opa.core.plugin import Hook
+
+class fullname_hook(Hook):
+    name = 'fullname'
+    order = 1
+
+    def run(self, firstname, lastname):
+        return f'{firstname} {lastname}'
+```
+
+Some key takeaways:
+* If the hook-definition's `is_async` is True, you will get an error if the run function is not async (`async def run(...)`)
+* `pm.call` is for sync, but you also have `pm.call_async` for async
+* Whatever arguments that the call-functions gets are what the run functions will get.
+* If there are multiple hooks for a single definition, the one with the highest `order` wins (default order is 0).
+* The `HookDefinition`, the route that calls `pm.call..` are usually together in the same plugin. The hooks are normally separate plugins.
+* A typical usecase is to also define a `Hook` with default order of `-1` togehter with the `HookDefinition`, that way, your pm.call will have a default hook
+* There can only be 1 hook definition per `name` or you will get an error.
+
+[Complete example](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hooks)
+
+Now, this was a really simple example. But it can be used for many things
+* Language or environment specific code (load different hook-plugins based on tags)
+* A hierarcy of internal plugins, where you define some of their behavior dynamicly using a simple environment variable to choose an env
+* Provide additional info if running in dev-env
+* Provide a solid base, for others to built small custom plugins on
+
+
+### Drivers / Optional-components
+
+More than often, you will need a database, cache backend (redis) or another 3rd party component.
+You can use one of the [built-in drivers](./optional-components-reference), or you can make your own very easiely.
 
 #### Configuration
 
-A driver is a reference to another thing, example redis or mongodb. It is something you can use throwout your other plugins.
-The default configuration loads a couple of drivers if it can find the component (example a hostname of `redis` avalable).
+The default configuration loads a couple of drivers if it can find the component. That means that, if opa-stack think redis is available, it will try to connect to it. The redis drivers just uses a simple host-lookup for this check (check if `redis` avalable).
 
 All drivers are configured under the `OPTIONAL_COMPONENTS` in the configuration. The default configuration is [here](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/default-settings.yaml), or see below.
 
@@ -51,7 +133,7 @@ myenv:
 ```
 
 In the example above:
-* It will use the `redis-walrus`
+* It will use the `redis-walrus` driver
 * Give you an instance of it named `myredis` available in your plugins
 * Load if the hostname `some-external-redis` answers
 * Merge with the other optional-components already defined (`dynaconf_merge`)
@@ -60,7 +142,7 @@ In the example above:
 
 To use an optional-component (lets say the one defined above), load it as a dependency in your route, like
 
-```
+```py
 @router.get("/counter")
 def counter_sync(myredis=Depends(get_component('myredis'))):
     counter = myredis.instance.incr('counter')
@@ -73,84 +155,46 @@ Take a look at the [optional-components reference](./optional-components-referen
 
 #### Adding a driver
 
-You can add a driver using a plugin. For probably the best example, see the [driver-redis](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/plugins/driver_redis.py) plugin at github (or below). It have additional comments.
+You can add a driver using a plugin. For probably the best example, see the [driver-redis](https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/plugins/driver_redis.py) plugin at github (or below).
 
 ::: details driver_redis.py
 <<< @/opa-stack/api/data/opa/plugins/driver_redis.py
 :::
 
-In driver_redis you will see that we use `register_driver` inside `Plugin.startup` to simply register it using a name (name is used in the configuration, to choose the correct driver).
+In driver_redis you will see that a driver is just a class inherited from `opa.core.plugin.Driver`:
+* `pm` is the plugin-manager instance, that is available as `self.pm` inside the driver-instance
+* `connect(self, opts)`
+  * Can by `async` or `sync`.
+  * Is run when we load the application.
+  * `opts` is the opts configured, example `opts.URL`
+  * Is responsible for setting `self.instance`.
+* `validate(self)`:
+  * Needs to be async if connect is async
+  * Will run only if the `LOAD` config is `yes` (ie, must be connected)
+  * Should raise an exception of any kind if it is not able to validate the connection.
+* `disconnect(self)`: Not implemented yet
+* `get_instance(self)`: Normally it just returns `self.instance`, but if you want, you can override it
 
-The `connect` and `disconnect` functions also supports both normal functions, or async functions if you have an async lib you want to support.
-
-### Hooks
-
-Hooks are used if you want to replace or provide a custom function for different code.
-Example, let say you have a plugin, but want for a part of the plugin to be dynamic.
-
-You can then create a place in your code where the hook should run.
-
-[Example](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hooks)
-
-The job of the helloer is to give expose a "hello" in different languages..
-
-::: details helloer.py
-<<< @/opa-stack/examples/docker-compose/hooks/plugins/helloer.py
+::: tip
+If you want some logic in your driver, you can use `hooks`, just use `self.pm.call` or `self.pm.call_async` as described above.
 :::
-
-Then in the plugin where you want this used, you can register and use the hooks..
-
-::: details hello_no.py
-<<< @/opa-stack/examples/docker-compose/hooks/plugins/hello_no.py
-:::
-
-Now, this was a really simple example. But it can be used for many things
-* A hierarcy of internal plugins, where you define some of their behavior dynamicly using a simple environment variable to choose an env
-* Provide additional info if running in dev-env
-* Provide a solid base, for others to built small custom plugins on
-
-In general, hooks*
-* Must be registered for usage using `hooks` in your `Plugin`
-* Can have settings
-  * `require`: Make your app crash before it starts if hook are not handled
-* Can only be registered and used one time
-* Can only be registered as a hook one time
 
 ### API's and routes
 
-If you want to add a route accessible via an api, you must use `Plugin.setup` and the `app`-instance available in it.
+If you want to add a route accessible via an api, you must use make a class that inherits from `opa.core.plugin.Setup`. It is initialized at the right time, so you can put your logic in `__init__`.
 An example is always best, so take a look at [timekeeper example](https://github.com/opa-stack/opa-stack/blob/master/examples/docker-compose/timekeeper/plugins/timekeeper.py) for a nice little example.
 
 ::: details timekeeper.py
 <<< @/opa-stack/examples/docker-compose/timekeeper/plugins/timekeeper.py
 :::
 
-::: warning
-Notice that in `Plugin`, there are 2 different functions called when it initializes.
+When the init-function is called, you will get access to some objects, if you define them as attributes, example, `def __init__(self, app)` will make the FastAPI `app` available.
 
-* `setup()`
-  * With an optional `app` - Which is the FastAPI's app instance
+* `app`: The FastAPI app
+* `pm`: Plugin-manager instance
 
-* `startup()`
-  * With optional `register_driver`, or `register_hook` - Which are register functions for adding drivers and hooks
-:::
 
-Example...
-
-```py
-class Plugin(BasePlugin):
-    def setup(self, app):
-        app.include_router(router)
-
-    def startup(self, register_driver, register_hook):
-        register_driver('my-driver', MyDriver)
-        register_hook('my-hook', get_hookdata)
-
-```
-
-### Config
-
-### Metadata
+## Metadata
 
 A plugin can have metadata attached to it in form of a `json` file.
 * If it's a flat `.py` file. Create a file with `-meta.json`
