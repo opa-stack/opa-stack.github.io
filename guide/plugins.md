@@ -163,16 +163,19 @@ You can add a driver using a plugin. For probably the best example, see the [dri
 
 In driver_redis you will see that a driver is just a class inherited from `opa.core.plugin.Driver`:
 * `pm` is the plugin-manager instance, that is available as `self.pm` inside the driver-instance
-* `connect(self, opts)`
+* `opts` will be populated with the original OPTS for this driver
+* `connect()`
   * Can by `async` or `sync`.
   * Is run when we load the application.
   * `opts` is the opts configured, example `opts.URL`
+  * If the configuration `LOAD` is set to `auto`
+    * This function needs to return False to signal that the pre-check (ie, hostname check) failed and it should not connect.. If it does not return False, we will validate try to validate the connection even if `LOAD=auto`
   * Is responsible for setting `self.instance`.
-* `validate(self)`:
+* `validate()`:
   * Needs to be async if connect is async
   * Will run only if
     * `LOAD` config is `yes`
-    * or if `.instance` is set 
+    * or if connect `did not` return `False`
   * Should raise an exception of any kind if it is not able to validate the connection.
 * `disconnect(self)`: Not implemented yet
 * `get_instance(self)`: Normally it just returns `self.instance`, but if you want, you can override it
