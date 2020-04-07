@@ -27,26 +27,30 @@ Take a look at the default configuration [here](https://github.com/opa-stack/opa
 
 ## Usage
 
-When you want to use an optional-component, use FastAPI and it `Depends` to get the component instance.
+When you want to use an optional-component you the best way is to use `opa.get_instance(name)` like this
 
 ```py
-from fastapi import APIRouter, Depends
-from opa.core.plugin import get_component
+from opa import get_instance, get_router
 from opa.plugins.driver_redis import Walrus
 
-router = APIRouter()
+router = get_router()
 
 @router.get("/")
-def counter_sync(walrus: Walrus = Depends(get_component('walrus'))):
-    counter = walrus.instance.incr('counter')
+def counter_sync():
+    walrus = get_intance('walrus')
+    counter = walrus.incr('counter')
     return f'Counter is {counter}'
 ```
 
-Notice that:
-* `get_component()` takes the lowercase component key-name as input
-* Driver should include types if possible, but you don't need that.. (ie, `walrus = Depends(get...)` would work as well..)
-* The driver's instance is under `walrus.instance`, not directly as `walrus`
-* The driver can also provide utility functions or other functions; (fictional example: `walrus.utils.backup(to='...')`)
+::: warning
+`opa.get_instance()` takes the lowercase component key-name as input
+:::
+
+The other ways to get the instance (might be usefull in some cases)
+
+* Use `component = opa.get_component(name)`
+  * The instance will be under `component.instance`, but there are other component-info you might want under `component`
+* Use `pm = opa.get_plugin_manager()`, then `pm.optional_components[name]` to get the component instance
 
 ## Drivers
 
@@ -55,7 +59,7 @@ Notice that:
 | Redis | [Aioredis](https://aioredis.readthedocs.io/) | [redis-aioredis](#aioredis)  | yes |
 | Redis | [Walrus](https://walrus.readthedocs.io) | [redis-walrus](#walrus) | no |
 | Mongodb | [Motor](https://motor.readthedocs.io/en/stable/) | [mongodb-async-motor](#motor) | yes |
-
+| Celery | [Celery](http://www.celeryproject.org/) | [celery](#celery) | no |
 
 ### Redis
 
@@ -68,3 +72,12 @@ Notice that:
 ### Mongodb
 
 #### Motor
+
+### Celery / tasks
+
+If you need basic background tasks, look into (FastAPI/Starlette BackgroundTasks)[https://fastapi.tiangolo.com/tutorial/background-tasks/] instead.
+
+* Document
+  * need to be a package (ie, __init__.py)
+  * must use tasks.py
+  * how to access resources

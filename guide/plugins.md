@@ -47,29 +47,22 @@ Hooks are used if you want to replace or provide a custom function for a part of
 Example, think of a tiny generic app like this:
 
 ```py
-from fastapi import Depends, APIRouter
 from opa.core.plugin import (
     get_plugin_manager,
-    PluginManager,
-    Hook,
-    Setup,
+    get_router,
+    call_hook,
+    Hook
 )
 
-router = APIRouter()
+router = get_router()
 
 
 @router.get("/get-fullname/{firstname}/{surname}")
 def show_name(
-    firstname: str, surname: str, pm: PluginManager = Depends(get_plugin_manager)
+    firstname: str, surname: str
 ):
-    fullname = pm.call('fullname', firstname, surname)
+    fullname = call_hook('fullname', firstname, surname)
     return {'name': fullname}
-
-
-class MyApp(Setup):
-    def __init__(self, app):
-        app.include_router(router)
-
 ```
 
 It calculates `fullname` based on whatever the hook called `fullname` returns.
@@ -88,10 +81,10 @@ class fullname_hook(Hook):
 
 Some key takeaways:
 * If the hook-definition's `is_async` is True, you will get an error if the run function is not async (`async def run(...)`)
-* `pm.call` is for sync, but you also have `pm.call_async` for async
+* `call_hook` is for sync, there is also a `call_hook_async` for async
 * Whatever arguments that the call-functions gets are what the run functions will get.
 * If there are multiple hooks for a single definition, the one with the highest `order` wins (default order is 0).
-* The `HookDefinition`, the route that calls `pm.call..` are usually together in the same plugin. The hooks are normally separate plugins.
+* The `HookDefinition` and the route that calls `call_hook` are usually together in the same plugin. The hooks are normally separate plugins.
 * A typical usecase is to also define a `Hook` with default order of `-1` togehter with the `HookDefinition`, that way, your pm.call will have a default hook
 * There can only be 1 hook definition per `name` or you will get an error.
 
@@ -144,8 +137,9 @@ To use an optional-component (lets say the one defined above), load it as a depe
 
 ```py
 @router.get("/counter")
-def counter_sync(myredis=Depends(get_component('myredis'))):
-    counter = myredis.instance.incr('counter')
+def counter_sync():
+    myredis = get_instance('myredis')
+    counter = myredis.incr('counter')
     return f'Counter is {counter}'
 ```
 
@@ -161,7 +155,7 @@ You can add a driver using a plugin. For probably the best example, see the [dri
 <<< @/opa-stack/api/data/opa/plugins/driver_redis.py
 :::
 
-In driver_redis you will see that a driver is just a class inherited from `opa.core.plugin.Driver`:
+In driver_redis you will see that a driver is just a class inherited from `opa.Driver`:
 * `pm` is the plugin-manager instance, that is available as `self.pm` inside the driver-instance
 * `opts` will be populated with the original OPTS for this driver
 * `connect()`
@@ -181,23 +175,29 @@ In driver_redis you will see that a driver is just a class inherited from `opa.c
 * `get_instance(self)`: Normally it just returns `self.instance`, but if you want, you can override it
 
 ::: tip
-If you want some logic in your driver, you can use `hooks`, just use `self.pm.call` or `self.pm.call_async` as described above.
+If you want some logic in your driver, you can use `hooks`, just use `scall_hook` or `call_hook_async` as described [above](#hook).
 :::
 
 ### API's and routes
 
-If you want to add a route accessible via an api, you must use make a class that inherits from `opa.core.plugin.Setup`. It is initialized at the right time, so you can put your logic in `__init__`.
-An example is always best, so take a look at [timekeeper example](https://github.com/opa-stack/opa-stack/blob/master/examples/docker-compose/timekeeper/plugins/timekeeper.py) for a nice little example.
+If you want to add a route accessible via an api, there are multiple ways to do it.
 
-::: details timekeeper.py
-<<< @/opa-stack/examples/docker-compose/timekeeper/plugins/timekeeper.py
+Expose an `APIRouter` instance named `router` in your plugin is probably the easiest. It will work for most of the usecases.
+
+```py
+from opa import get_router
+router = get_router()
+
+@router.get("/")
+def root():
+    return 'Hello'
+```
+
+::: tip
+The `get_router` function is nothing magical, it is basicly the same as `fastapi.APIRouter()`.
 :::
 
-When the init-function is called, you will get access to some objects, if you define them as attributes, example, `def __init__(self, app)` will make the FastAPI `app` available.
-
-* `app`: The FastAPI app
-* `pm`: Plugin-manager instance
-
+Another way is to use the `Setup` plugin. It will get the main fastapi `app` object as input, which you can use to add a route or do more powerfull things.
 
 ## Metadata
 
