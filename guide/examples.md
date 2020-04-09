@@ -152,6 +152,10 @@ See [below](#celery-task) for info about running a celery task.
   * http://localhost:8001/add/1/2 - Trigger some tasks that will add 1+2 using celery
     * Trigger many... They will queue up. At the end of each task, the celery worker (in its own container) will increment a counter
     * The same counter is reported as output when accessing this url.
+  * See tasks as they arrive
+    * docker-compose exec -w /data worker bash
+    * celery -A opa.main control enable_events
+    * celery -A opa.main events
 
 
 * Files at github: [https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task)
