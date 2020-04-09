@@ -140,14 +140,30 @@ See [below](#celery-task) for info about running a celery task.
 
 ## Celery task
 
-::: warning
-Not implemented yet
-:::
-
 [Celery](http://www.celeryproject.org/) is a very powerfull distributed task-queue. It is much more feature-rich than the default background tasks available in FastAPI/Starlette.
 
 * Setup
   * Uses docker-compose
-  * Uses the api-container
+  * Uses the api-container for both the api and the celery worker
   * Redis for storing task-results
   * Rabbitmq for keeping track of tasks (broker)
+
+* Things to try
+  * http://localhost:8001/add/1/2 - Trigger some tasks that will add 1+2 using celery
+    * Trigger many... They will queue up. At the end of each task, the celery worker (in its own container) will increment a counter
+    * The same counter is reported as output when accessing this url.
+
+
+* Files at github: [https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task)
+
+::: details docker-compose.yaml
+<<< @/opa-stack/examples/docker-compose/celery-task/docker-compose.yaml
+:::
+
+::: details plugins/celerydemo/__init__.py
+<<< @/opa-stack/examples/docker-compose/celery-task/plugins/celerydemo/__init__.py
+:::
+
+::: details plugins/celerydemo/tasks.py
+<<< @/opa-stack/examples/docker-compose/celery-task/plugins/celerydemo/tasks.py
+:::

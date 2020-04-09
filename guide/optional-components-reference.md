@@ -75,9 +75,15 @@ The other ways to get the instance (might be usefull in some cases)
 
 ### Celery / tasks
 
-If you need basic background tasks, look into (FastAPI/Starlette BackgroundTasks)[https://fastapi.tiangolo.com/tutorial/background-tasks/] instead.
+If you need basic background tasks, look into [FastAPI/Starlette BackgroundTasks](https://fastapi.tiangolo.com/tutorial/background-tasks/) instead.
 
-* Document
-  * need to be a package (ie, __init__.py)
-  * must use tasks.py
-  * how to access resources
+There is builtin support for running celery tasks, see the [sample-project](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task) for details, view info about the sample project [here](./examples.html#celery-task)
+
+The opa-stack's api-container can run in `worker mode`, ie, it will run a celery worker with the same codebase as the rest of the api. This is by far the simplest setup, but feel free to run your own workers if you need.
+* Set environment-variable `MODE=worker` to start it as a worker
+* Set additional celery params (`celery worker -A opa.main ${CELERY_PARAMS}`) 
+
+Some important notes about using celery in opa-stack is:
+* The tasks must be defined in `tasks.py`, ie, you will need your plugin to be a python package (folder with `__init__.py`).
+* You can access optional-components as usual in the tasks, but only non-async drivers are working. Ie, you can't use drivers like `motor` or `aioredis` in your tasks.
+* The celery worker is using most of the opa-stack code. So configuration, driver-loading, hooks and so on will also work in the celery worker.
