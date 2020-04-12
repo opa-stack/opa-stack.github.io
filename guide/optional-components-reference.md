@@ -86,4 +86,5 @@ The opa-stack's api-container can run in `worker mode`, ie, it will run a celery
 Some important notes about using celery in opa-stack is:
 * The tasks must be defined in `tasks.py`, ie, you will need your plugin to be a python package (folder with `__init__.py`).
 * You can access optional-components as usual in the tasks, but only non-async drivers are working. Ie, you can't use drivers like `motor` or `aioredis` in your tasks.
+  * It is important that you DONT import any of your tasks on top of the file where your route is defined. Ie, do the `from packagename.tasks import sometask` inside your `@router.get('/')...` function!
 * The celery worker is using most of the opa-stack code. So configuration, driver-loading, hooks and so on will also work in the celery worker.

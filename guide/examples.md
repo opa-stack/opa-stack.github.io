@@ -144,18 +144,33 @@ See [below](#celery-task) for info about running a celery task.
 
 * Setup
   * Uses docker-compose
-  * Uses the api-container for both the api and the celery worker
+  * Same container image, but different config for
+    * api container
+    * worker-math - Runs celery and consumes the `math` queue
+    * worker-counter - Runs celery and consumes the `counter` queue
   * Redis for storing task-results
   * Rabbitmq for keeping track of tasks (broker)
+  * Flower to see statuses
 
 * Things to try
-  * http://localhost:8001/add/1/2 - Trigger some tasks that will add 1+2 using celery
-    * Trigger many... They will queue up. At the end of each task, the celery worker (in its own container) will increment a counter
-    * The same counter is reported as output when accessing this url.
+  * http://localhost:8001/inc/5 - Hit the url a couple of times
+    * They will queue up. At the end of each task, the celery worker (in the `worker-counter` container) will increment a counter
+    * The same counter is reported as output when accessing this url, since the api can access the same redis instance as the worker
+  * http://localhost:8001/div/A/B - Hit the other worker (`worker-math`)
+    * http://localhost:8001/div/2/1 - normal queuing
+    * http://localhost:8001/div/2/0 - one that will get an error
   * See tasks as they arrive
-    * docker-compose exec -w /data worker bash
-    * celery -A opa.main control enable_events
-    * celery -A opa.main events
+    * Using celery events (doesnt mather which)
+      * docker-compose exec -w /data worker-counter celery -A opa.main events
+      * docker-compose exec -w /data worker-math celery -A opa.main events
+    * Using flower
+      * http://localhost:5555/
+  * http://localhost:8001/inc/100 - Queue a task which takes 100 seconds
+    * Take a note of the task_id in the output
+  * http://localhost:8001/status/27deec1a-c8f0-4d0d-95dc-59c6dd937207 - Check status for task
+    * The inc task updates some meta-info that we can query using another endpoint
+    * There are also a background task that will get those updates in the fastapi context, see the `__init__.py` file for info
+  * http://localhost:8001/last_status - Another way to get the status
 
 
 * Files at github: [https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task](https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task)
