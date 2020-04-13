@@ -57,3 +57,28 @@ Get better exception output on the console. It does many things, but one very us
 
 The plugin-system is powerfull, you can read about it [here](./api/plugin-system).
 Since there is a lot to it for developing them, there is a [dedicated](./plugins) page for info about it.
+
+## Interactive shell
+
+You can get an interactive shell in the context of opa-stack by using `opa/scripts/shell.sh`. It will start an ipython shell where the plugins are available.
+
+Example (from a host-machine using docker-compose)
+
+```python
+docker-compose exec -w /data api ./opa/scripts/shell.sh
+
+In [1]: from opa import get_instance
+
+In [2]: walrus = get_instance('walrus')
+
+In [3]: walrus
+Out[3]: Database<ConnectionPool<Connection<host=redis,port=6379,db=0>>>
+
+In [4]: walrus.get('test')
+
+In [5]: walrus.set('test', 1)
+Out[5]: True
+
+In [6]: walrus.get('test')
+Out[6]: b'1'
+```
