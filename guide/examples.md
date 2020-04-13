@@ -92,6 +92,8 @@ Example using redis (both async and normal), using two different libs (aioredis 
 
 * Things to try
   * http://127.0.0.1:8001/counter-async - See a counter
+  * `cat a_file.md | curl -X POST -d @- "http://localhost:8000/bloom"` - fill up a bloom filter
+  * http://localhost:8000/bloom?string=sleep - Check for `sleep` in the bloomfilter
 
 ### Files
 
