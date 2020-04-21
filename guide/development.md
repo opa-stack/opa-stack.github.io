@@ -15,6 +15,25 @@
 
 * Cheatsheet - https://gitlab.com/euri10/fastapi_cheatsheet
 
+## Builtin libs/utils
+
+### Logging
+
+* `from opa import log`
+
+The log object will behave just like a [loguru](https://github.com/Delgan/loguru) object. In addition to use the `log.info('...')` and other log-function, you can also use it in after an object to get additional quick info.
+
+Example
+
+```py
+from opa import log
+
+log.info('Hello')
+
+a = {'b': [1, 2, 3]} | log  # Will output the object `a` as `DEBUG`.
+print(a['b'])  # [1, 2, 3]
+```
+
 ## Development mode (ENV=dev)
 
 * Currently, only the `api` does something when `ENV` is set.. But this might change when more components are added later.
