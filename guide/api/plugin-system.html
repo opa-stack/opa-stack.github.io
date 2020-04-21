@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plugin system | opa-stack</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a2b7d327.css" as="style"><link rel="preload" href="/assets/js/app.4e27d91f.js" as="script"><link rel="preload" href="/assets/js/3.ab9a3b8e.js" as="script"><link rel="preload" href="/assets/js/9.76f32432.js" as="script"><link rel="prefetch" href="/assets/js/10.15db5ece.js"><link rel="prefetch" href="/assets/js/11.b8f9ff69.js"><link rel="prefetch" href="/assets/js/12.3a8e2acb.js"><link rel="prefetch" href="/assets/js/13.e8dd8de7.js"><link rel="prefetch" href="/assets/js/14.5b8196d5.js"><link rel="prefetch" href="/assets/js/15.79dc74f3.js"><link rel="prefetch" href="/assets/js/16.bff4d9f4.js"><link rel="prefetch" href="/assets/js/17.7b74f075.js"><link rel="prefetch" href="/assets/js/18.718f9d0a.js"><link rel="prefetch" href="/assets/js/4.ae135471.js"><link rel="prefetch" href="/assets/js/5.3e16bd23.js"><link rel="prefetch" href="/assets/js/6.52732cdc.js"><link rel="prefetch" href="/assets/js/7.b108359b.js"><link rel="prefetch" href="/assets/js/8.1da2c1df.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.abc87a80.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a2b7d327.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">opa-stack</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link router-link-exact-active router-link-active">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link router-link-exact-active router-link-active">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/guide/" class="sidebar-link">Intro</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/#getting-started" class="sidebar-link">Getting started</a></li></ul></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Development</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>API details</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/api/configuration.html" class="sidebar-link">Configuration</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#environment" class="sidebar-link">Environment</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#special-environments" class="sidebar-link">Special environments</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#examples" class="sidebar-link">Examples</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#using-a-file-mounted" class="sidebar-link">Using a file mounted</a></li><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#using-environment-variables" class="sidebar-link">Using environment variables</a></li><li class="sidebar-sub-header"><a href="/guide/api/configuration.html#file-with-different-environments" class="sidebar-link">File with different environments</a></li></ul></li></ul></li><li><a href="/guide/api/plugin-system.html" class="active sidebar-link">Plugin system</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/api/plugin-system.html#adding-plugin-paths" class="sidebar-link">Adding plugin-paths</a></li><li class="sidebar-sub-header"><a href="/guide/api/plugin-system.html#file-structure" class="sidebar-link">File-structure</a></li><li class="sidebar-sub-header"><a href="/guide/api/plugin-system.html#configuration" class="sidebar-link">Configuration</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="plugin-system"><a href="#plugin-system" class="header-anchor">#</a> Plugin system</h1> <p>The plugin-system are powerfull and should cover most use-cases.</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>If you want to peak at code that drives the plugin-system, it's on <a href="https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/core/plugin.py" target="_blank" rel="noopener noreferrer">github<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> or just expand it here</p> <details class="custom-block details"><summary>plugin.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">import</span> os
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> inspect
+<span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> pkgutil
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> defaultdict
+<span class="token keyword">from</span> importlib <span class="token keyword">import</span> import_module
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> List<span class="token punctuation">,</span> Callable
+
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> APIRouter
+
+<span class="token keyword">from</span> opa<span class="token punctuation">.</span>utils <span class="token keyword">import</span> unique<span class="token punctuation">,</span> filter_dict_to_function
+<span class="token keyword">from</span> opa <span class="token keyword">import</span> config
+
+
+<span class="token keyword">class</span> <span class="token class-name">BasePlugin</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Driver</span><span class="token punctuation">(</span>BasePlugin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    instance<span class="token punctuation">:</span> Any <span class="token operator">=</span> <span class="token boolean">None</span>
+    opts<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
+    pm<span class="token punctuation">:</span> <span class="token string">'PluginManager'</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> opts<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> load<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>opts <span class="token operator">=</span> opts <span class="token keyword">or</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        self<span class="token punctuation">.</span>load <span class="token operator">=</span> load
+
+    <span class="token keyword">def</span> <span class="token function">_pre_connection_check</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> connectionstatus<span class="token punctuation">,</span> load<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> connectionstatus <span class="token operator">==</span> <span class="token boolean">False</span><span class="token punctuation">:</span>  <span class="token comment"># if no host found</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>load <span class="token operator">==</span> <span class="token string">'yes'</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                    <span class="token string-interpolation"><span class="token string">f'Connect pre-check failed for </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string">, as if the host is not there? Options </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>opts<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+                <span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">if</span> <span class="token builtin">hasattr</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token string">'validate'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+    <span class="token keyword">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        connectionstatus <span class="token operator">=</span> self<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>_pre_connection_check<span class="token punctuation">(</span>connectionstatus<span class="token punctuation">,</span> self<span class="token punctuation">.</span>load<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>validate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">initialize_async</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        connectionstatus <span class="token operator">=</span> <span class="token keyword">await</span> self<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>_pre_connection_check<span class="token punctuation">(</span>connectionstatus<span class="token punctuation">,</span> self<span class="token punctuation">.</span>load<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">await</span> self<span class="token punctuation">.</span>validate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_instance</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>instance
+
+
+<span class="token keyword">class</span> <span class="token class-name">HookDefinition</span><span class="token punctuation">(</span>BasePlugin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    required<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+    is_async<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+    _used<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Hook</span><span class="token punctuation">(</span>BasePlugin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    order<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Setup</span><span class="token punctuation">(</span>BasePlugin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_defined_plugins</span><span class="token punctuation">(</span>mod<span class="token punctuation">,</span> plugin_types<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    plugin_types <span class="token operator">=</span> plugin_types <span class="token keyword">or</span> <span class="token punctuation">[</span><span class="token string">'hook-definitions'</span><span class="token punctuation">,</span> <span class="token string">'hooks'</span><span class="token punctuation">,</span> <span class="token string">'drivers'</span><span class="token punctuation">,</span> <span class="token string">'setup'</span><span class="token punctuation">]</span>
+    returndata <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> name<span class="token punctuation">,</span> obj <span class="token keyword">in</span> inspect<span class="token punctuation">.</span>getmembers<span class="token punctuation">(</span>mod<span class="token punctuation">,</span> inspect<span class="token punctuation">.</span>isclass<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> mod<span class="token punctuation">.</span>__name__ <span class="token operator">!=</span> obj<span class="token punctuation">.</span>__module__<span class="token punctuation">:</span>
+            <span class="token comment"># We don't want to load plugins/modules if they are imported, ie 'from ... import AnotherPlugin'</span>
+            <span class="token keyword">continue</span>
+
+        <span class="token keyword">if</span> obj <span class="token keyword">is</span> Hook <span class="token keyword">or</span> obj <span class="token keyword">is</span> Driver <span class="token keyword">or</span> obj <span class="token keyword">is</span> Setup<span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+
+        <span class="token keyword">if</span> <span class="token builtin">issubclass</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> Hook<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token string">'hooks'</span> <span class="token keyword">in</span> plugin_types<span class="token punctuation">:</span>
+            returndata<span class="token punctuation">[</span><span class="token string">'hooks'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> <span class="token builtin">issubclass</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> HookDefinition<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token string">'hook-definitions'</span> <span class="token keyword">in</span> plugin_types<span class="token punctuation">:</span>
+            returndata<span class="token punctuation">[</span><span class="token string">'hook-definitions'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> <span class="token builtin">issubclass</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> Driver<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token string">'drivers'</span> <span class="token keyword">in</span> plugin_types<span class="token punctuation">:</span>
+            returndata<span class="token punctuation">[</span><span class="token string">'drivers'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> <span class="token builtin">issubclass</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> Setup<span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token string">'setup'</span> <span class="token keyword">in</span> plugin_types<span class="token punctuation">:</span>
+            returndata<span class="token punctuation">[</span><span class="token string">'setup'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> returndata
+
+
+<span class="token keyword">class</span> <span class="token class-name">PluginManager</span><span class="token punctuation">:</span>
+    status<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Dict<span class="token punctuation">]</span>
+
+    drivers<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Driver<span class="token punctuation">]</span>
+    optional_components<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Driver<span class="token punctuation">]</span>
+    hooks<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> List<span class="token punctuation">[</span>Hook<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    hook_definitions<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Hook<span class="token punctuation">]</span>
+
+    store<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>status <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>drivers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        self<span class="token punctuation">.</span>optional_components <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        self<span class="token punctuation">.</span>hooks <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>hook_definitions <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+        self<span class="token punctuation">.</span>store <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'task_candidates'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">post_hook</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        final_hooks<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Hook<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">for</span> hook_name<span class="token punctuation">,</span> hooks <span class="token keyword">in</span> self<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            definition <span class="token operator">=</span> self<span class="token punctuation">.</span>hook_definitions<span class="token punctuation">.</span>get<span class="token punctuation">(</span>hook_name<span class="token punctuation">)</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                hook_to_use <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>hooks<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">.</span>order<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+            <span class="token keyword">except</span> IndexError<span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+
+            <span class="token keyword">if</span> definition<span class="token punctuation">:</span>
+                definition<span class="token punctuation">.</span>_used <span class="token operator">=</span> <span class="token boolean">True</span>
+            final_hooks<span class="token punctuation">[</span>hook_name<span class="token punctuation">]</span> <span class="token operator">=</span> hook_to_use
+
+        should_be_used <span class="token operator">=</span> <span class="token punctuation">[</span>
+            name
+            <span class="token keyword">for</span> name<span class="token punctuation">,</span> definition <span class="token keyword">in</span> self<span class="token punctuation">.</span>hook_definitions<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>definition<span class="token punctuation">.</span>required<span class="token punctuation">,</span> <span class="token keyword">not</span> definition<span class="token punctuation">.</span>_used<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+        <span class="token keyword">if</span> should_be_used<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Hooks that should be registered: </span><span class="token interpolation"><span class="token punctuation">{</span>should_be_used<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>hooks <span class="token operator">=</span> final_hooks
+
+    <span class="token keyword">def</span> <span class="token function">register_driver</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> driver<span class="token punctuation">:</span> Driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        name <span class="token operator">=</span> driver<span class="token punctuation">.</span>name<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> name <span class="token keyword">in</span> self<span class="token punctuation">.</span>drivers<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>drivers<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token keyword">is</span> driver<span class="token punctuation">:</span>
+                <span class="token comment"># This might happen example if we import a driver-class inside a plugin-file.</span>
+                <span class="token comment"># It should be valid, example if you need it for typing.</span>
+                <span class="token keyword">return</span> <span class="token boolean">None</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'Driver with this name (</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">) already exists. CaSe of driver is ignored.'</span></span>
+            <span class="token punctuation">)</span>
+        logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Registered driver </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>drivers<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> driver
+
+    <span class="token keyword">def</span> <span class="token function">_preload_drivers</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> name<span class="token punctuation">,</span> values <span class="token keyword">in</span> config<span class="token punctuation">.</span>OPTIONAL_COMPONENTS<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            name <span class="token operator">=</span> name<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            load <span class="token operator">=</span> values<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'LOAD'</span><span class="token punctuation">,</span> <span class="token string">'auto'</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> load <span class="token operator">==</span> <span class="token string">'no'</span><span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+
+            drivername <span class="token operator">=</span> values<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'DRIVER'</span><span class="token punctuation">)</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                driver <span class="token operator">=</span> self<span class="token punctuation">.</span>drivers<span class="token punctuation">[</span>drivername<span class="token punctuation">]</span>
+            <span class="token keyword">except</span> KeyError<span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                    <span class="token string-interpolation"><span class="token string">f'Invalid driver specified (</span><span class="token interpolation"><span class="token punctuation">{</span>drivername<span class="token punctuation">}</span></span><span class="token string">), no way to handle it'</span></span>
+                <span class="token punctuation">)</span>
+
+            driverinstance <span class="token operator">=</span> driver<span class="token punctuation">(</span>opts<span class="token operator">=</span>values<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'OPTS'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> load<span class="token operator">=</span>load<span class="token punctuation">)</span>
+            driverinstance<span class="token punctuation">.</span>pm <span class="token operator">=</span> self
+            self<span class="token punctuation">.</span>optional_components<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> driverinstance
+
+            logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'Connecting to </span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string"> with driver </span><span class="token interpolation"><span class="token punctuation">{</span>drivername<span class="token punctuation">}</span></span><span class="token string">, using </span><span class="token interpolation"><span class="token punctuation">{</span>driverinstance<span class="token punctuation">.</span>opts<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword">yield</span> driverinstance
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">load_components</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> driverinstance <span class="token keyword">in</span> self<span class="token punctuation">.</span>_preload_drivers<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>driverinstance<span class="token punctuation">.</span>connect<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">await</span> driverinstance<span class="token punctuation">.</span>initialize_async<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                driverinstance<span class="token punctuation">.</span>initialize<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">load_sync_components_global</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> driverinstance <span class="token keyword">in</span> self<span class="token punctuation">.</span>_preload_drivers<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>driverinstance<span class="token punctuation">.</span>connect<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Driver </span><span class="token interpolation"><span class="token punctuation">{</span>driverinstance<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string"> is async, wont load'</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                driverinstance<span class="token punctuation">.</span>initialize<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">register_hook_definition</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            name <span class="token operator">=</span> obj<span class="token punctuation">.</span>name
+        <span class="token keyword">except</span> AttributeError<span class="token punctuation">:</span>
+            name <span class="token operator">=</span> obj<span class="token punctuation">.</span>__name__
+
+        <span class="token keyword">if</span> name <span class="token keyword">in</span> self<span class="token punctuation">.</span>hook_definitions<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'There can only be 1 hook-definition per hook-name. &quot;</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">&quot; is already registered'</span></span>
+            <span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>hook_definitions<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> obj
+
+    <span class="token keyword">def</span> <span class="token function">register_hook</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            name <span class="token operator">=</span> obj<span class="token punctuation">.</span>name
+        <span class="token keyword">except</span> AttributeError<span class="token punctuation">:</span>
+            name <span class="token operator">=</span> obj<span class="token punctuation">.</span>__name__
+
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            hook_definition <span class="token operator">=</span> self<span class="token punctuation">.</span>hook_definitions<span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+        <span class="token keyword">except</span> KeyError<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'There are no hook-definition for hook &quot;</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string">&quot;, are you using the correct name?'</span></span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> hook_definition<span class="token punctuation">.</span>is_async<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>obj<span class="token punctuation">.</span>run<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                    <span class="token string-interpolation"><span class="token string">f'Hook-definition is marked as async but the function is not (</span><span class="token interpolation"><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>run<span class="token punctuation">}</span></span><span class="token string">).'</span></span>
+                <span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>obj<span class="token punctuation">.</span>run<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                    <span class="token string-interpolation"><span class="token string">f'Hook-definition is not marked as async, but is.. Mark it as async or make it sync: </span><span class="token interpolation"><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>run<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+                <span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>obj<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">run_setup</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> params<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        params <span class="token operator">=</span> filter_dict_to_function<span class="token punctuation">(</span>params<span class="token punctuation">,</span> obj<span class="token punctuation">.</span>__init__<span class="token punctuation">)</span>
+        name <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>__module__<span class="token punctuation">}</span></span><span class="token string">.</span><span class="token interpolation"><span class="token punctuation">{</span>obj<span class="token punctuation">.</span>__name__<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+        self<span class="token punctuation">.</span>status<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'init'</span><span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">(</span><span class="token operator">**</span>params<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">call</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        func <span class="token operator">=</span> self<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>run
+        <span class="token keyword">if</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'The hook function (</span><span class="token interpolation"><span class="token punctuation">{</span>func<span class="token punctuation">}</span></span><span class="token string">) is async and should not be called using non-async calls. Call it using &quot;await call_async()&quot;'</span></span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">call_async</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        func <span class="token operator">=</span> self<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>run
+        <span class="token keyword">if</span> <span class="token keyword">not</span> asyncio<span class="token punctuation">.</span>iscoroutinefunction<span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f'The hook function (</span><span class="token interpolation"><span class="token punctuation">{</span>func<span class="token punctuation">}</span></span><span class="token string">) is not async call it using &quot;call(..)&quot;'</span></span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">await</span> self<span class="token punctuation">.</span>hooks<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">_get_plugindata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    Plugins are imported from multiple paths with these rules:
+      * First with a unique name wins
+      * There are multiple matchers, that ALL must return true. They return true if they are NOT set, or if they match &quot;$plugin_path / $plugin_name&quot;
+        * PLUGIN_WHITELIST_RE (regex)
+        * PLUGIN_WHITELIST_LIST
+        * PLUGIN_WHITELIST_TAGS
+        * not in PLUGIN_BLACKLIST_LIST
+        * not in PLUGIN_BLACKLIST_RE
+        * not in PLUGIN_BLACKLIST_TAGS
+    &quot;&quot;&quot;</span>
+    PLUGIN_WHITELIST_RE <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>PLUGIN_WHITELIST_RE<span class="token punctuation">)</span>
+    PLUGIN_BLACKLIST_RE <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>PLUGIN_BLACKLIST_RE<span class="token punctuation">)</span>
+
+    PLUGIN_WHITELIST_TAGS <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>PLUGIN_WHITELIST_TAGS<span class="token punctuation">)</span>
+    PLUGIN_BLACKLIST_TAGS <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>PLUGIN_BLACKLIST_TAGS<span class="token punctuation">)</span>
+
+    PLUGIN_PATHS <span class="token operator">=</span> unique<span class="token punctuation">(</span>
+        <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">[</span>config<span class="token punctuation">.</span>PLUGIN_PATHS<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>PLUGIN_PATHS<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span> config<span class="token punctuation">.</span>PLUGIN_PATHS
+    <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token string">'/data/opa/plugins'</span><span class="token punctuation">]</span>
+
+    logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span>
+        <span class="token string">'Plugin loading settings:'</span>
+        <span class="token string-interpolation"><span class="token string">f'  plugin-paths: </span><span class="token interpolation"><span class="token punctuation">{</span>PLUGIN_PATHS<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  whitelist-regex: </span><span class="token interpolation"><span class="token punctuation">{</span>PLUGIN_WHITELIST_RE<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  whitelist-list: </span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">.</span>PLUGIN_WHITELIST_LIST<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  whitelist-tags: </span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">.</span>PLUGIN_WHITELIST_TAGS<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  blacklist-list: </span><span class="token interpolation"><span class="token punctuation">{</span>config<span class="token punctuation">.</span>PLUGIN_BLACKLIST_LIST<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  blacklist-regex: </span><span class="token interpolation"><span class="token punctuation">{</span>PLUGIN_BLACKLIST_RE<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+        <span class="token string-interpolation"><span class="token string">f'  blacklist-tags: </span><span class="token interpolation"><span class="token punctuation">{</span>PLUGIN_BLACKLIST_TAGS<span class="token punctuation">}</span></span><span class="token string">\n'</span></span>
+    <span class="token punctuation">)</span>
+
+    sys_paths <span class="token operator">=</span> sys<span class="token punctuation">.</span>path <span class="token operator">+</span> PLUGIN_PATHS
+    sys<span class="token punctuation">.</span>path <span class="token operator">=</span> unique<span class="token punctuation">(</span>sys_paths<span class="token punctuation">)</span>
+
+    plugins_to_load <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+    task_candidates <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    routers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">for</span> plugin <span class="token keyword">in</span> pkgutil<span class="token punctuation">.</span>iter_modules<span class="token punctuation">(</span>PLUGIN_PATHS<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        allow_match <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>plugin<span class="token punctuation">.</span>module_finder<span class="token punctuation">.</span>path<span class="token punctuation">,</span> plugin<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        tasks_candidate <span class="token operator">=</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">if</span> plugin<span class="token punctuation">.</span>ispkg<span class="token punctuation">:</span>
+            metafile <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>allow_match<span class="token punctuation">,</span> <span class="token string">'meta.json'</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>allow_match<span class="token punctuation">,</span> <span class="token string">'tasks.py'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                tasks_candidate <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            metafile <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>allow_match<span class="token punctuation">}</span></span><span class="token string">-meta.json'</span></span>
+
+        logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+        logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Checking if we should load &quot;</span><span class="token interpolation"><span class="token punctuation">{</span>allow_match<span class="token punctuation">}</span></span><span class="token string">&quot;'</span></span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>metafile<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Found metafile @ </span><span class="token interpolation"><span class="token punctuation">{</span>metafile<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+            metadata <span class="token operator">=</span> json<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span>metafile<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Metafile @ </span><span class="token interpolation"><span class="token punctuation">{</span>metafile<span class="token punctuation">}</span></span><span class="token string"> does not exist, using empty metadata'</span></span><span class="token punctuation">)</span>
+            metadata <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Metadata: </span><span class="token interpolation"><span class="token punctuation">{</span>metadata<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+
+        load_checks <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> config<span class="token punctuation">.</span>PLUGIN_WHITELIST_LIST<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_WHITELIST_LIST'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+                allow_match <span class="token keyword">in</span> config<span class="token punctuation">.</span>PLUGIN_WHITELIST_LIST
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> PLUGIN_WHITELIST_RE<span class="token punctuation">.</span>pattern<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_WHITELIST_RE'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">bool</span><span class="token punctuation">(</span>
+                PLUGIN_WHITELIST_RE<span class="token punctuation">.</span>match<span class="token punctuation">(</span>allow_match<span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> PLUGIN_WHITELIST_TAGS<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_WHITELIST_TAGS'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">bool</span><span class="token punctuation">(</span>
+                PLUGIN_WHITELIST_TAGS <span class="token operator">&amp;</span> <span class="token builtin">set</span><span class="token punctuation">(</span>metadata<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'tags'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> config<span class="token punctuation">.</span>PLUGIN_BLACKLIST_LIST<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_BLACKLIST_LIST'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+                allow_match <span class="token keyword">not</span> <span class="token keyword">in</span> config<span class="token punctuation">.</span>PLUGIN_BLACKLIST_LIST
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> PLUGIN_BLACKLIST_RE<span class="token punctuation">.</span>pattern<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_BLACKLIST_RE'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">not</span> <span class="token builtin">bool</span><span class="token punctuation">(</span>
+                PLUGIN_BLACKLIST_RE<span class="token punctuation">.</span>match<span class="token punctuation">(</span>allow_match<span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> PLUGIN_BLACKLIST_TAGS<span class="token punctuation">:</span>
+            load_checks<span class="token punctuation">[</span><span class="token string">'PLUGIN_BLACKLIST_TAGS'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">not</span> <span class="token builtin">bool</span><span class="token punctuation">(</span>
+                PLUGIN_BLACKLIST_TAGS <span class="token operator">&amp;</span> <span class="token builtin">set</span><span class="token punctuation">(</span>metadata<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'tags'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span>
+
+        load <span class="token operator">=</span> <span class="token builtin">all</span><span class="token punctuation">(</span>load_checks<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        logging<span class="token punctuation">.</span>debug<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Load-checks: </span><span class="token interpolation"><span class="token punctuation">{</span>load_checks<span class="token punctuation">}</span></span><span class="token string">, overall(</span><span class="token interpolation"><span class="token punctuation">{</span>load<span class="token punctuation">}</span></span><span class="token string">)'</span></span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> <span class="token keyword">not</span> load<span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+
+        logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Loading plugin: </span><span class="token interpolation"><span class="token punctuation">{</span>plugin<span class="token punctuation">.</span>name<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+        mod <span class="token operator">=</span> import_module<span class="token punctuation">(</span>plugin<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> tasks_candidate<span class="token punctuation">:</span>
+            task_candidates<span class="token punctuation">.</span>append<span class="token punctuation">(</span>plugin<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+        defined_plugins <span class="token operator">=</span> get_defined_plugins<span class="token punctuation">(</span>mod<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> pt <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token string">'hook-definitions'</span><span class="token punctuation">,</span> <span class="token string">'hooks'</span><span class="token punctuation">,</span> <span class="token string">'drivers'</span><span class="token punctuation">,</span> <span class="token string">'setup'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            plugins_to_load<span class="token punctuation">[</span>pt<span class="token punctuation">]</span> <span class="token operator">+=</span> defined_plugins<span class="token punctuation">[</span>pt<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token builtin">hasattr</span><span class="token punctuation">(</span>mod<span class="token punctuation">,</span> <span class="token string">'router'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            routers<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mod<span class="token punctuation">.</span>router<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">'plugins_to_load'</span><span class="token punctuation">:</span> plugins_to_load<span class="token punctuation">,</span>
+        <span class="token string">'task_candidates'</span><span class="token punctuation">:</span> task_candidates<span class="token punctuation">,</span>
+        <span class="token string">'routers'</span><span class="token punctuation">:</span> routers<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+
+plugin_manager<span class="token punctuation">:</span> PluginManager
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">startup</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> plugin_manager
+    plugin_manager <span class="token operator">=</span> PluginManager<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token operator">**</span>_get_plugindata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> hook_definition <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'hook-definitions'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_hook_definition<span class="token punctuation">(</span>hook_definition<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> hook <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'hooks'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_hook<span class="token punctuation">(</span>hook<span class="token punctuation">)</span>
+    plugin_manager<span class="token punctuation">.</span>post_hook<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> driver <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'drivers'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_driver<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>
+    <span class="token keyword">await</span> plugin_manager<span class="token punctuation">.</span>load_components<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> router <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'routers'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        app<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>router<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> setup <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'setup'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>run_setup<span class="token punctuation">(</span>setup<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'app'</span><span class="token punctuation">:</span> app<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">startup_simple</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    Startup for simple sync apps that want some of the core functionality of opa-stack,
+    but not the fastapi app itself. Usefull for things like celery workers
+    &quot;&quot;&quot;</span>
+    <span class="token keyword">global</span> plugin_manager
+    plugin_manager <span class="token operator">=</span> PluginManager<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token operator">**</span>_get_plugindata<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> hook_definition <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'hook-definitions'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_hook_definition<span class="token punctuation">(</span>hook_definition<span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> hook <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'hooks'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_hook<span class="token punctuation">(</span>hook<span class="token punctuation">)</span>
+    plugin_manager<span class="token punctuation">.</span>post_hook<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> driver <span class="token keyword">in</span> plugin_manager<span class="token punctuation">.</span>store<span class="token punctuation">[</span><span class="token string">'plugins_to_load'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'drivers'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        plugin_manager<span class="token punctuation">.</span>register_driver<span class="token punctuation">(</span>driver<span class="token punctuation">)</span>
+    plugin_manager<span class="token punctuation">.</span>load_sync_components_global<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">shutdown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_plugin_manager</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> PluginManager<span class="token punctuation">:</span>
+    <span class="token keyword">return</span> plugin_manager
+
+
+<span class="token keyword">def</span> <span class="token function">get_component</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> plugin_manager<span class="token punctuation">.</span>optional_components<span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_instance</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> get_component<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">.</span>instance
+
+
+<span class="token keyword">def</span> <span class="token function">get_util</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> get_component<span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">.</span>util
+
+
+<span class="token keyword">def</span> <span class="token function">call_hook</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> plugin_manager<span class="token punctuation">.</span>call<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">call_hook_async</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token keyword">await</span> plugin_manager<span class="token punctuation">.</span>call_async<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_router</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> APIRouter<span class="token punctuation">:</span>
+    <span class="token keyword">return</span> APIRouter<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+</code></pre></div></details></div> <h2 id="adding-plugin-paths"><a href="#adding-plugin-paths" class="header-anchor">#</a> Adding plugin-paths</h2> <p>To use a custom plugin-folder, populate the configuration named <code>PLUGIN_PATHS</code> with a comma-separated-list of path's.</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>The path <code>/data/opa/plugins</code> will always be appened, this is because we use plugins internally as well. However, they can easiely be overridden if wanted as they are appended as the last item in the list.</p></div> <h2 id="file-structure"><a href="#file-structure" class="header-anchor">#</a> File-structure</h2> <p>When loading plugins, we uses <code>PLUGIN_PATHS</code> to find possible plugins. We will load both plugins that are single files, but also packages containing an <code>__init__.py</code>.</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>Make sure the name of your plugin is unique, since we are using the pythons import system when importing it.
+Example.. Don't call your plugin <code>redis.py</code> and expect it to work... 😃 You will probably get some errors down the line.</p></div> <p>The order when the plugins are loaded is important. If you want to load plugin <code>myplugin</code>, and there are 2 files with that name, the first one in the <code>PLUGIN_PATHS</code> will win. Just as in normal with <code>PATH</code> variables.
+We will ONLY care about the first one. Even if the first one is going to get ignored by a filter (see below)</p> <h2 id="configuration"><a href="#configuration" class="header-anchor">#</a> Configuration</h2> <ul><li><code>PLUGIN_PATH</code>: List of paths to potentially load plugins from, default <code>[]</code>, ie, only <code>/data/opa/plugins</code> (as it is always there..).
+This is an array, and can be overwritten if you define it multiple places, to merge multiple entries, write, example (notice the <code>dynacon_merge</code>) (<a href="https://dynaconf.readthedocs.io/" target="_blank" rel="noopener noreferrer">dynaconf-docs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>)</li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">default</span><span class="token punctuation">:</span>
+  <span class="token key atrule">PLUGIN_PATHS</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;/extra_plugins&quot;</span>
+    <span class="token punctuation">-</span> dynaconf_merge
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>If you want to define this value using an environment-variable, you can define it as a string (<code>OPA_PLUGIN_PATHS='/plugins'</code>) or a list, (<code>OPA_PLUGIN_PATHS='[&quot;/plugins&quot;, &quot;/more_plugins&quot;]'</code>)</p></div> <p>If a plugin is loaded or not can be dictated using rules. There are many different filters, and they are all set to allow-as-default.
+You should only use 0, 1 or maybe 2 of the settings.. But feel free to use as many as you like 😃</p> <ul><li><p><code>PLUGIN_WHITELIST_LIST</code> (default: []): List of whitelisted plugins to load.</p></li> <li><p><code>PLUGIN_WHITELIST_RE</code> (default: &quot;&quot;): Regex of whitelisted plugins to load.</p></li> <li><p><code>PLUGIN_WHITELIST_TAGS</code> (default: []): List of whitelisted plugin tags to load. Setting this means that we will ONLY load plugins having one or more of these tags.</p></li> <li><p><code>PLUGIN_BLACKLIST_LIST</code> (default: []): List of blacklisted plugins to not load.</p></li> <li><p><code>PLUGIN_BLACKLIST_RE</code> (default: &quot;&quot;): Regex of blacklisted plugins to not load.</p></li> <li><p><code>PLUGIN_BLACKLIST_TAGS</code> (default: []): List of blacklisted plugin tags to not load.</p></li></ul> <p>The default settings means that <strong>ALL</strong> available plugins (in the paths) will be loaded by default. Which might be just what you want.</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>The <code>_LIST</code> and <code>_RE</code> matches will match against the plugin-path, and the module-name. Example-paths it will need to match against</p> <ul><li><code>/data/opa/demo-plugins/demo_noop</code>: For the file inside <code>/data/opa/demo-plugins</code> named <code>demo_noop.py</code></li> <li><code>/data/opa/demo-plugins/demo_model</code>: For the <code>demo_model</code> package (a folder with an <code>__init__.py</code> file)</li></ul> <p>The <code>_TAGS</code> matchers will check for metadata</p></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/opa-stack/opa-stack.github.io/edit/source/guide/api/plugin-system.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/1/2020, 8:18:19 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/api/configuration.html" class="prev">
+        Configuration
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.4e27d91f.js" defer></script><script src="/assets/js/3.ab9a3b8e.js" defer></script><script src="/assets/js/9.76f32432.js" defer></script>
+  </body>
+</html>

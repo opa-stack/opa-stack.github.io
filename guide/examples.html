@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Examples | opa-stack</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a2b7d327.css" as="style"><link rel="preload" href="/assets/js/app.4e27d91f.js" as="script"><link rel="preload" href="/assets/js/3.ab9a3b8e.js" as="script"><link rel="preload" href="/assets/js/11.b8f9ff69.js" as="script"><link rel="prefetch" href="/assets/js/10.15db5ece.js"><link rel="prefetch" href="/assets/js/12.3a8e2acb.js"><link rel="prefetch" href="/assets/js/13.e8dd8de7.js"><link rel="prefetch" href="/assets/js/14.5b8196d5.js"><link rel="prefetch" href="/assets/js/15.79dc74f3.js"><link rel="prefetch" href="/assets/js/16.bff4d9f4.js"><link rel="prefetch" href="/assets/js/17.7b74f075.js"><link rel="prefetch" href="/assets/js/18.718f9d0a.js"><link rel="prefetch" href="/assets/js/4.ae135471.js"><link rel="prefetch" href="/assets/js/5.3e16bd23.js"><link rel="prefetch" href="/assets/js/6.52732cdc.js"><link rel="prefetch" href="/assets/js/7.b108359b.js"><link rel="prefetch" href="/assets/js/8.1da2c1df.js"><link rel="prefetch" href="/assets/js/9.76f32432.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.abc87a80.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a2b7d327.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">opa-stack</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link router-link-exact-active router-link-active">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link router-link-exact-active router-link-active">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/guide/" class="sidebar-link">Intro</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/#getting-started" class="sidebar-link">Getting started</a></li></ul></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Development</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/development.html" class="sidebar-link">Info</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#commands" class="sidebar-link">Commands</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#resources" class="sidebar-link">Resources</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#builtin-libs-utils" class="sidebar-link">Builtin libs/utils</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#development-mode-env-dev" class="sidebar-link">Development mode (ENV=dev)</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#plugins" class="sidebar-link">Plugins</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#interactive-shell" class="sidebar-link">Interactive shell</a></li></ul></li><li><a href="/guide/new-project.html" class="sidebar-link">New project</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/new-project.html#orchestrators" class="sidebar-link">Orchestrators</a></li></ul></li><li><a href="/guide/plugins.html" class="sidebar-link">Plugins</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/plugins.html#types-of-plugins" class="sidebar-link">Types of plugins</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#metadata" class="sidebar-link">Metadata</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#examples" class="sidebar-link">Examples</a></li></ul></li><li><a href="/guide/optional-components-reference.html" class="sidebar-link">Optional-components reference</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#configuration" class="sidebar-link">Configuration</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#usage" class="sidebar-link">Usage</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#drivers" class="sidebar-link">Drivers</a></li></ul></li><li><a href="/guide/examples.html" class="active sidebar-link">Examples</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#hello-world" class="sidebar-link">Hello world</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#timekeeper" class="sidebar-link">Timekeeper</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#redis" class="sidebar-link">Redis</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#background-tasks" class="sidebar-link">Background tasks</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#celery-task" class="sidebar-link">Celery task</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>API details</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="examples"><a href="#examples" class="header-anchor">#</a> Examples</h1> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>Read <a href="./new-project">this</a> first if you need a new project</p></div> <p>Note that on all the examples, you will also get these url's</p> <ul><li>http://127.0.0.1:8001/docs - Swagger documentation</li> <li>http://127.0.0.1:8001/redoc - Redoc documentation</li> <li>http://127.0.0.1:8001/openapi.json - OpenAPI schema</li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>The <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer">FastAPI<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> have already made an extremely usefull documentation that you should consider reading as well.
+Because it exists, this doc won't be about deep things you can do with FastAPI</p></div> <h2 id="hello-world"><a href="#hello-world" class="header-anchor">#</a> Hello world</h2> <p>The first example is a simple docker-compose setup where you will</p> <ul><li>Setup
+<ul><li><p>Uses docker-compose</p></li> <li><p>Use only the api container</p></li> <li><p>Expose output from a simple command on <code>/hello</code></p></li> <li><p>Mount the plugins from a local plugin-folder.</p></li> <li><p>Things to try</p> <ul><li>http://127.0.0.1:8001/hello - The output of the route in <code>hello.py</code></li></ul></li></ul></li></ul> <h3 id="files"><a href="#files" class="header-anchor">#</a> Files</h3> <ul><li>Files at github: <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hello-world" target="_blank" rel="noopener noreferrer">https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hello-world<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">api</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> opastack/api<span class="token punctuation">:</span>latest
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8000&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">OPA_PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token string">&quot;/plugins&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/plugins
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/hello.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa <span class="token keyword">import</span> get_router
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/hello&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">return_string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello to you'</span>
+</code></pre></div></details> <h2 id="timekeeper"><a href="#timekeeper" class="header-anchor">#</a> Timekeeper</h2> <p>This example is still simple, but shows you how to do a little bit more, including a better development environment.</p> <ul><li><p>Setup</p> <ul><li>Uses docker-compose</li> <li>Using only the api container</li> <li>Expose output on <code>/time</code> that also accept some parameters</li> <li>Expose output on <code>/month/{month}</code> that converts a number (1-12) to month-name. Crashes if it is not able to...</li> <li>Expose output on <code>/sleep-async/{seconds}</code> that sleeps.. This is an async function</li> <li>Expose output on <code>/sleep-sync/{seconds}</code> that sleeps.. This is not an async function..</li> <li>Mount the plugins from a local plugin-folder, watches them for changes.</li> <li>Sets the environment to <code>DEV</code> (see <a href="/guide/api/configuration.html#dev">docs</a> for more info)
+<ul><li>In addition to other things, enabling <code>DEV</code> gives some neat developing features.. Check <a href="/guide/development.html#development-mode-env-dev">here</a> for more info how to leverage them</li></ul></li></ul></li> <li><p>Things to try</p> <ul><li>http://127.0.0.1:8001/time - Should show you the time in the default format</li> <li>http://127.0.0.1:8001/docs#/timekeeper/get_time_time_get &gt; Try it out &gt; change format &gt; Execute</li> <li>http://127.0.0.1:8001/month/2</li> <li>http://127.0.0.1:8001/month/20
+<ul><li>See the better-exception (with variable output) in the console.</li> <li>Try setting up vscode <a href="/guide/development.html#PTVSD">debugging</a> and set a breakpoint and so on..</li></ul></li> <li>Hammer on http://127.0.0.1:8001/sleep-async/10 and http://127.0.0.1:8001/sleep-sync/20 on multiple terminals.. See how async is the king when it comes to things that blocks.</li> <li>Or use something like <a href="https://github.com/rakyll/hey" target="_blank" rel="noopener noreferrer">hey<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, for better benchmarking.
+<ul><li>hey -n 100 -c 100 http://127.0.0.1:8001/sleep-async/5</li> <li>hey -n 100 -c 100 http://127.0.0.1:8001/sleep-sync/5</li></ul></li></ul></li></ul> <h3 id="files-2"><a href="#files-2" class="header-anchor">#</a> Files</h3> <ul><li>Files at github: <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/timekeeper" target="_blank" rel="noopener noreferrer">https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/timekeeper<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">api</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> opastack/api<span class="token punctuation">:</span>latest
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8000&quot;</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:5678:5678&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">OPA_PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token string">&quot;@merge /plugins&quot;</span>
+      <span class="token key atrule">OPA_PLUGIN_BLACKLIST_LIST</span><span class="token punctuation">:</span> <span class="token string">'[&quot;/data/opa/plugins/core-selfhosted&quot;]'</span>
+      <span class="token key atrule">ENV</span><span class="token punctuation">:</span> <span class="token string">&quot;dev&quot;</span>
+      <span class="token key atrule">OPA_LOGLEVEL</span><span class="token punctuation">:</span> <span class="token string">&quot;debug&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/plugins
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/timekeeper.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">import</span> logging
+<span class="token keyword">import</span> datetime
+<span class="token keyword">import</span> secrets
+
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> asyncio <span class="token keyword">import</span> sleep <span class="token keyword">as</span> async_sleep
+
+<span class="token keyword">from</span> opa <span class="token keyword">import</span> get_router
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Using tags helps separate your items from the also included demo-plugins</span>
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/time&quot;</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&quot;timekeeper&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get_time</span><span class="token punctuation">(</span><span class="token builtin">format</span><span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">'%Y-%m-%d %H:%M:%S'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token builtin">format</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/month/{month}&quot;</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&quot;timekeeper&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">get_monthname</span><span class="token punctuation">(</span>month<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    Make sure you give me a valid month number, or I might crash...
+    &quot;&quot;&quot;</span>
+    <span class="token keyword">return</span> datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>month<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'%m'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%B'</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/sleep-async/{seconds}&quot;</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&quot;timekeeper&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">async_sleeper</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    I sleep for some seconds, then return how long I slept.. Neat!
+    But I'm also async, so it shoulnt block anything..
+    &quot;&quot;&quot;</span>
+    randstring <span class="token operator">=</span> secrets<span class="token punctuation">.</span>token_urlsafe<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+    logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Start async sleep for (</span><span class="token interpolation"><span class="token punctuation">{</span>randstring<span class="token punctuation">}</span></span><span class="token string">) for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> async_sleep<span class="token punctuation">(</span>seconds<span class="token punctuation">)</span>
+    logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Ending async sleep for (</span><span class="token interpolation"><span class="token punctuation">{</span>randstring<span class="token punctuation">}</span></span><span class="token string">) for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'I slept for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string"> seconds'</span></span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/sleep-sync/{seconds}&quot;</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">&quot;timekeeper&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">sync_sleeper</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+    I'm almost like sleep-async, but I'm not async.. That means that I block python when I do nothing.
+    &quot;&quot;&quot;</span>
+    randstring <span class="token operator">=</span> secrets<span class="token punctuation">.</span>token_urlsafe<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+    logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Start sync sleep for (</span><span class="token interpolation"><span class="token punctuation">{</span>randstring<span class="token punctuation">}</span></span><span class="token string">) for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    sleep<span class="token punctuation">(</span>seconds<span class="token punctuation">)</span>
+    logging<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Ending sync sleep for (</span><span class="token interpolation"><span class="token punctuation">{</span>randstring<span class="token punctuation">}</span></span><span class="token string">) for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'I slept for </span><span class="token interpolation"><span class="token punctuation">{</span>seconds<span class="token punctuation">}</span></span><span class="token string"> seconds'</span></span>
+</code></pre></div></details> <h2 id="redis"><a href="#redis" class="header-anchor">#</a> Redis</h2> <p>Example using redis (both async and normal), using two different libs (aioredis and walrus), see <a href="/guide/optional-components-reference.html#redis">dependencies</a> for more info.</p> <ul><li><p>Setup</p> <ul><li>Uses docker-compose</li> <li>Using the api container, and a redis-container</li> <li>Expose output on <code>/counter-async</code> increments when you visit using aioredis</li> <li>Expose output on <code>/counter-sync</code> increments when you visit using walrus</li> <li>Expose output to GET and POST on <code>/bloom</code>, one to add entries to a bloom-filter (using walrus) and one to check. Walrus have a ton of neat feature, this is one of them.</li></ul></li> <li><p>Things to try</p> <ul><li>http://127.0.0.1:8001/counter-async - See a counter</li> <li><code>cat a_file.md | curl -X POST -d @- &quot;http://localhost:8000/bloom&quot;</code> - fill up a bloom filter</li> <li>http://localhost:8000/bloom?string=sleep - Check for <code>sleep</code> in the bloomfilter</li></ul></li></ul> <h3 id="files-3"><a href="#files-3" class="header-anchor">#</a> Files</h3> <ul><li>Files at github: <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/redis" target="_blank" rel="noopener noreferrer">https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/redis<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">api</span><span class="token punctuation">:</span>
+    <span class="token comment"># image: opastack/api:latest</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> 25724b069f78
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8000&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">OPA_PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token string">&quot;/plugins&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/plugins
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;redis:5&quot;</span>
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/timekeeper.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa <span class="token keyword">import</span> get_instance<span class="token punctuation">,</span> get_router
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/counter-async&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">counter_async</span><span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    counter <span class="token operator">=</span> <span class="token keyword">await</span> get_instance<span class="token punctuation">(</span><span class="token string">'aioredis'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>incr<span class="token punctuation">(</span>key <span class="token keyword">or</span> <span class="token string">'incr-async'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Counter is </span><span class="token interpolation"><span class="token punctuation">{</span>counter<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/counter-sync&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">counter_sync</span><span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    counter <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>incr<span class="token punctuation">(</span>key <span class="token keyword">or</span> <span class="token string">'incr-sync'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Counter is </span><span class="token interpolation"><span class="token punctuation">{</span>counter<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/bloom&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">check_bloom_filter</span><span class="token punctuation">(</span>string<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    walrus <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    bf <span class="token operator">=</span> walrus<span class="token punctuation">.</span>bloom_filter<span class="token punctuation">(</span><span class="token string">'bf'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> string <span class="token keyword">in</span> bf
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span><span class="token string">&quot;/bloom&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">add_bloom_filter</span><span class="token punctuation">(</span>string<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Waiting for https://github.com/tiangolo/fastapi/issues/1018 to have plain/text input</span>
+    <span class="token comment"># Possible now, but not with generation of the openapi spec..</span>
+    walrus <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    bf <span class="token operator">=</span> walrus<span class="token punctuation">.</span>bloom_filter<span class="token punctuation">(</span><span class="token string">'bf'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> string<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        bf<span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Added entries'</span></span>
+</code></pre></div></details> <h2 id="background-tasks"><a href="#background-tasks" class="header-anchor">#</a> Background tasks</h2> <p>Background tasks are built into FastAPI/Starlette. If you come from the sync-world, you are probably used to Celery.
+Celery complicates a lot, so if you just got a simple fire-and-forget job. A background-task might fit your needs.</p> <p>See <a href="#celery-task">below</a> for info about running a celery task.</p> <ul><li><p>Setup</p> <ul><li>Uses docker-compose</li> <li>Using the api container</li> <li>Uses redis for locking and keeping track of a string (not needed for running tasks where you don't care about results)</li> <li>Runs background tasks using <a href="https://fastapi.tiangolo.com/tutorial/background-tasks/" target="_blank" rel="noopener noreferrer">FastAPI<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>'s <a href="https://www.starlette.io/background/" target="_blank" rel="noopener noreferrer">starlette background tasks<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>Let you POST to <code>/runone</code> to put a task to the queue, it runs for 4 seconds</li> <li>Expose output on <code>/runone</code> to see status of which task is currently running</li></ul></li> <li><p>Things to try</p> <ul><li>Terminal 1 - Status
+<ul><li><code>while true; do curl http://localhost:8001/runone; echo; sleep 1; done</code></li></ul></li> <li>Terminal 2 - Trigger new tasks, try triggering many, see they queue up on terminal 1
+<ul><li>curl -X POST http://localhost:8001/runone</li></ul></li></ul></li></ul> <h3 id="files-4"><a href="#files-4" class="header-anchor">#</a> Files</h3> <ul><li>Files at github: <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/background-task" target="_blank" rel="noopener noreferrer">https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/background-task<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">api</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> opastack/api<span class="token punctuation">:</span>latest
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8000&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">OPA_PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token string">&quot;/plugins&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/plugins
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;redis:5&quot;</span>
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/tasks.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> secrets <span class="token keyword">import</span> token_urlsafe
+
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> BackgroundTasks<span class="token punctuation">,</span> APIRouter
+
+<span class="token keyword">from</span> opa <span class="token keyword">import</span> get_router<span class="token punctuation">,</span> get_instance
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">queuer</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    walrus <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    lock <span class="token operator">=</span> walrus<span class="token punctuation">.</span>lock<span class="token punctuation">(</span><span class="token string">'runone'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">with</span> lock<span class="token punctuation">:</span>
+        walrus<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'runone'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        sleep<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+        walrus<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'runone'</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span><span class="token string">&quot;/runone&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">runone_post</span><span class="token punctuation">(</span>background_tasks<span class="token punctuation">:</span> BackgroundTasks<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    random_str <span class="token operator">=</span> token_urlsafe<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+    background_tasks<span class="token punctuation">.</span>add_task<span class="token punctuation">(</span>queuer<span class="token punctuation">,</span> random_str<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string-interpolation"><span class="token string">f&quot;Triggered background task: </span><span class="token interpolation"><span class="token punctuation">{</span>random_str<span class="token punctuation">}</span></span><span class="token string">&quot;</span></span><span class="token punctuation">}</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/runone&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">runone_get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    walrus <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">&quot;current_task&quot;</span><span class="token punctuation">:</span> walrus<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'runone'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+</code></pre></div></details> <h2 id="celery-task"><a href="#celery-task" class="header-anchor">#</a> Celery task</h2> <p><a href="http://www.celeryproject.org/" target="_blank" rel="noopener noreferrer">Celery<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> is a very powerfull distributed task-queue. It is much more feature-rich than the default background tasks available in FastAPI/Starlette.</p> <ul><li><p>Setup</p> <ul><li>Uses docker-compose</li> <li>Same container image, but different config for
+<ul><li>api container</li> <li>worker-math - Runs celery and consumes the <code>math</code> queue</li> <li>worker-counter - Runs celery and consumes the <code>counter</code> queue</li></ul></li> <li>Redis for storing task-results</li> <li>Rabbitmq for keeping track of tasks (broker)</li> <li>Flower to see statuses</li></ul></li> <li><p>Things to try</p> <ul><li>http://localhost:8001/inc/5 - Hit the url a couple of times
+<ul><li>They will queue up. At the end of each task, the celery worker (in the <code>worker-counter</code> container) will increment a counter</li> <li>The same counter is reported as output when accessing this url, since the api can access the same redis instance as the worker</li></ul></li> <li>http://localhost:8001/div/A/B - Hit the other worker (<code>worker-math</code>)
+<ul><li>http://localhost:8001/div/2/1 - normal queuing</li> <li>http://localhost:8001/div/2/0 - one that will get an error</li></ul></li> <li>See tasks as they arrive
+<ul><li>Using celery events (doesnt mather which)
+<ul><li>docker-compose exec -w /data worker-counter celery -A opa.main events</li> <li>docker-compose exec -w /data worker-math celery -A opa.main events</li></ul></li> <li>Using flower
+<ul><li>http://localhost:5555/</li></ul></li></ul></li> <li>http://localhost:8001/inc/100 - Queue a task which takes 100 seconds
+<ul><li>Take a note of the task_id in the output</li></ul></li> <li>http://localhost:8001/status/27deec1a-c8f0-4d0d-95dc-59c6dd937207 - Check status for task
+<ul><li>The inc task updates some meta-info that we can query using another endpoint</li> <li>There are also a background task that will get those updates in the fastapi context, see the <code>__init__.py</code> file for info</li></ul></li> <li>http://localhost:8001/last_status - Another way to get the status</li></ul></li> <li><p>Files at github: <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task" target="_blank" rel="noopener noreferrer">https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li></ul> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">api</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> opastack/api<span class="token punctuation">:</span>latest
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;127.0.0.1:8001:8000&quot;</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">OPA_PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token string">&quot;/plugins&quot;</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./plugins<span class="token punctuation">:</span>/plugins
+
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;redis:5&quot;</span>
+
+  <span class="token key atrule">rabbitmq</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;rabbitmq:3.8-management&quot;</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;15672:15672&quot;</span> <span class="token comment"># Management port</span>
+
+  <span class="token key atrule">flower</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;mher/flower:latest&quot;</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token string">&quot;-A proj --broker=amqp://guest:guest@rabbitmq:5672//&quot;</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;5555:5555&quot;</span>
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/celerydemo/__init__.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa <span class="token keyword">import</span> get_router<span class="token punctuation">,</span> Hook<span class="token punctuation">,</span> get_instance<span class="token punctuation">,</span> app
+
+
+<span class="token keyword">class</span> <span class="token class-name">celery_config</span><span class="token punctuation">(</span>Hook<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'driver.celery.setup'</span>
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> celery_app<span class="token punctuation">,</span> task_candidates<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        celery_app<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>task_routes <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;worker.celery_worker.test_celery&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test-queue&quot;</span><span class="token punctuation">}</span>
+        celery_app<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>update<span class="token punctuation">(</span>task_track_started<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        celery_app<span class="token punctuation">.</span>autodiscover_tasks<span class="token punctuation">(</span>task_candidates<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> celery_app
+
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/add/{num1}/{num2}&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span>num1<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> num2<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">from</span> celerydemo<span class="token punctuation">.</span>tasks <span class="token keyword">import</span> test_celery
+
+    celery <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'celery'</span><span class="token punctuation">)</span>
+    walrus <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    test_celery<span class="token punctuation">.</span>delay<span class="token punctuation">(</span><span class="token string">'abc'</span><span class="token punctuation">)</span>
+    count <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>walrus<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'celery'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Word received&quot;</span><span class="token punctuation">,</span> <span class="token string">'count'</span><span class="token punctuation">:</span> count<span class="token punctuation">}</span>
+</code></pre></div></details> <details class="custom-block details"><summary>plugins/celerydemo/tasks.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+
+<span class="token keyword">from</span> celery <span class="token keyword">import</span> current_task
+
+<span class="token keyword">from</span> opa <span class="token keyword">import</span> get_instance
+
+celery <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'celery'</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@celery<span class="token punctuation">.</span>task</span>
+<span class="token keyword">def</span> <span class="token function">test_celery</span><span class="token punctuation">(</span>word<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        current_task<span class="token punctuation">.</span>update_state<span class="token punctuation">(</span>state<span class="token operator">=</span><span class="token string">'PROGRESS'</span><span class="token punctuation">,</span>
+                                  meta<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'process_percent'</span><span class="token punctuation">:</span> i<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    get_instance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token string">'celery'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f&quot;test task return </span><span class="token interpolation"><span class="token punctuation">{</span>word<span class="token punctuation">}</span></span><span class="token string">....&quot;</span></span></code></pre></div></details></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/opa-stack/opa-stack.github.io/edit/source/guide/examples.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/13/2020, 6:07:34 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/optional-components-reference.html" class="prev">
+        Optional-components reference
+      </a></span> <span class="next"><a href="/guide/api/configuration.html">
+        Configuration
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.4e27d91f.js" defer></script><script src="/assets/js/3.ab9a3b8e.js" defer></script><script src="/assets/js/11.b8f9ff69.js" defer></script>
+  </body>
+</html>

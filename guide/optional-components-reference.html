@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Optional-components reference | opa-stack</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a2b7d327.css" as="style"><link rel="preload" href="/assets/js/app.4e27d91f.js" as="script"><link rel="preload" href="/assets/js/3.ab9a3b8e.js" as="script"><link rel="preload" href="/assets/js/13.e8dd8de7.js" as="script"><link rel="prefetch" href="/assets/js/10.15db5ece.js"><link rel="prefetch" href="/assets/js/11.b8f9ff69.js"><link rel="prefetch" href="/assets/js/12.3a8e2acb.js"><link rel="prefetch" href="/assets/js/14.5b8196d5.js"><link rel="prefetch" href="/assets/js/15.79dc74f3.js"><link rel="prefetch" href="/assets/js/16.bff4d9f4.js"><link rel="prefetch" href="/assets/js/17.7b74f075.js"><link rel="prefetch" href="/assets/js/18.718f9d0a.js"><link rel="prefetch" href="/assets/js/4.ae135471.js"><link rel="prefetch" href="/assets/js/5.3e16bd23.js"><link rel="prefetch" href="/assets/js/6.52732cdc.js"><link rel="prefetch" href="/assets/js/7.b108359b.js"><link rel="prefetch" href="/assets/js/8.1da2c1df.js"><link rel="prefetch" href="/assets/js/9.76f32432.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.abc87a80.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a2b7d327.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">opa-stack</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/guide/" class="sidebar-link">Intro</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/#getting-started" class="sidebar-link">Getting started</a></li></ul></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Development</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/development.html" class="sidebar-link">Info</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#commands" class="sidebar-link">Commands</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#resources" class="sidebar-link">Resources</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#builtin-libs-utils" class="sidebar-link">Builtin libs/utils</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#development-mode-env-dev" class="sidebar-link">Development mode (ENV=dev)</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#plugins" class="sidebar-link">Plugins</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#interactive-shell" class="sidebar-link">Interactive shell</a></li></ul></li><li><a href="/guide/new-project.html" class="sidebar-link">New project</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/new-project.html#orchestrators" class="sidebar-link">Orchestrators</a></li></ul></li><li><a href="/guide/plugins.html" class="sidebar-link">Plugins</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/plugins.html#types-of-plugins" class="sidebar-link">Types of plugins</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#metadata" class="sidebar-link">Metadata</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#examples" class="sidebar-link">Examples</a></li></ul></li><li><a href="/guide/optional-components-reference.html" class="active sidebar-link">Optional-components reference</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#configuration" class="sidebar-link">Configuration</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#usage" class="sidebar-link">Usage</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#drivers" class="sidebar-link">Drivers</a></li></ul></li><li><a href="/guide/examples.html" class="sidebar-link">Examples</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#hello-world" class="sidebar-link">Hello world</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#timekeeper" class="sidebar-link">Timekeeper</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#redis" class="sidebar-link">Redis</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#background-tasks" class="sidebar-link">Background tasks</a></li><li class="sidebar-sub-header"><a href="/guide/examples.html#celery-task" class="sidebar-link">Celery task</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>API details</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="optional-components-reference"><a href="#optional-components-reference" class="header-anchor">#</a> Optional-components reference</h1> <p>If you havent read it, you should read about <a href="./plugins">plugins</a> first</p> <h2 id="configuration"><a href="#configuration" class="header-anchor">#</a> Configuration</h2> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>You must use dynaconf merge when changing these parameters.. Example</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">myenv</span><span class="token punctuation">:</span>
+  <span class="token key atrule">OPTIONAL_COMPONENTS</span><span class="token punctuation">:</span>
+    <span class="token key atrule">dynaconf_merge</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">WALRUS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-walrus&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis&quot;</span>
+</code></pre></div></div> <p>Take a look at the default configuration <a href="https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/default-settings.yaml" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> or see the file below (it is under the <code>OPTIONAL_COMPONENTS</code> key) for some examples.</p> <details class="custom-block details"><summary>default-settings.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">default</span><span class="token punctuation">:</span>
+  <span class="token key atrule">MODE</span><span class="token punctuation">:</span> <span class="token string">&quot;prod&quot;</span>
+  <span class="token key atrule">PROJECT_NAME</span><span class="token punctuation">:</span> <span class="token string">&quot;opa-stack&quot;</span>
+  <span class="token key atrule">PROJECT_DESCRIPTION</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PROJECT_VERSION</span><span class="token punctuation">:</span> <span class="token string">&quot;0.1.0&quot;</span>
+
+  <span class="token comment"># Urls to automatic documentation. Set to null to disable</span>
+  <span class="token key atrule">DOCS_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/docs&quot;</span>
+  <span class="token key atrule">REDOC_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/redoc&quot;</span>
+  <span class="token key atrule">OPENAPI_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/openapi.json&quot;</span> <span class="token comment"># Can only be null if DOCS_URL and REDOC_URL is also null</span>
+
+  <span class="token key atrule">OPENAPI_PREFIX</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+  <span class="token key atrule">PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token key atrule">PLUGIN_WHITELIST_LIST</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_WHITELIST_RE</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PLUGIN_WHITELIST_TAGS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_LIST</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_RE</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_TAGS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token comment"># CORS</span>
+  <span class="token key atrule">ALLOW_ORIGINS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+  <span class="token key atrule">ALLOW_CREDENTIALS</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">ALLOW_METHODS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+  <span class="token key atrule">ALLOW_HEADERS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token key atrule">SECRET_KEY</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+  <span class="token comment"># Configuration for optional components..</span>
+  <span class="token comment"># They all have a helper-file in ../utils/{component_name.lower()}.py, so check</span>
+  <span class="token comment"># in them if you wonder how these values are used. They are also listed in the docs</span>
+  <span class="token comment"># @ https://opa-stack.github.io/guide/components.html</span>
+  <span class="token comment">#</span>
+  <span class="token comment"># The LOAD option is always present, and can be one of auto|yes|no, all defaulting to 'auto'.</span>
+  <span class="token comment">#   * auto: Makes opa-stack look for the component using a simple dns-check or other simple checks</span>
+  <span class="token comment">#           Ie.. Check if we &quot;should&quot; be able to use this component.</span>
+  <span class="token comment">#           It will then try to connect as if you had written &quot;yes&quot;, ie, it fails if it is not able to..</span>
+  <span class="token comment">#   * yes: Makes the coponent required</span>
+  <span class="token comment">#   * no: Makes it not check at all.</span>
+
+  <span class="token key atrule">OPTIONAL_COMPONENTS</span><span class="token punctuation">:</span>
+    <span class="token key atrule">MONGODB</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;mongodb-async-motor&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;mongodb://mongo:mongo@mongo:27017/opa&quot;</span>
+
+    <span class="token key atrule">WALRUS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-walrus&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis&quot;</span>
+
+    <span class="token key atrule">AIOREDIS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-aioredis&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis&quot;</span>
+
+    <span class="token key atrule">CELERY</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;celery&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">BACKEND_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis/1&quot;</span>
+        <span class="token key atrule">BROKER_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;pyamqp://guest@rabbitmq//&quot;</span>
+
+  <span class="token comment"># Used different places, currently:</span>
+  <span class="token comment">#  * Setting FastAPI/Starlette debug-mode (https://www.starlette.io/applications/)</span>
+  <span class="token key atrule">DEBUG</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># Turns on better exceptions, ie, prettier, and with some more info (like variables)</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># Python Tools for Visual Studio debug server, running on port 5678</span>
+  <span class="token key atrule">PTVSD</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># External js files are loaded from the internet as default</span>
+  <span class="token key atrule">SELF_HOSTED</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+<span class="token key atrule">dev</span><span class="token punctuation">:</span>
+  <span class="token key atrule">MODE</span><span class="token punctuation">:</span> <span class="token string">&quot;dev&quot;</span>
+  <span class="token key atrule">PTVSD</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS_MAX_LENGTH</span><span class="token punctuation">:</span> <span class="token number">1000</span>
+  <span class="token key atrule">PLUGIN_PATHS</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;/data/opa/demo-plugins&quot;</span>
+    <span class="token punctuation">-</span> dynaconf_merge
+</code></pre></div></details> <h2 id="usage"><a href="#usage" class="header-anchor">#</a> Usage</h2> <p>When you want to use an optional-component you the best way is to use <code>opa.get_instance(name)</code> like this</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa <span class="token keyword">import</span> get_instance<span class="token punctuation">,</span> get_router
+<span class="token keyword">from</span> opa<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span>driver_redis <span class="token keyword">import</span> Walrus
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">counter_sync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    walrus <span class="token operator">=</span> get_intance<span class="token punctuation">(</span><span class="token string">'walrus'</span><span class="token punctuation">)</span>
+    counter <span class="token operator">=</span> walrus<span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token string">'counter'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Counter is </span><span class="token interpolation"><span class="token punctuation">{</span>counter<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p><code>opa.get_instance()</code> takes the lowercase component key-name as input</p></div> <p>The other ways to get the instance (might be usefull in some cases)</p> <ul><li>Use <code>component = opa.get_component(name)</code> <ul><li>The instance will be under <code>component.instance</code>, but there are other component-info you might want under <code>component</code></li></ul></li> <li>Use <code>pm = opa.get_plugin_manager()</code>, then <code>pm.optional_components[name]</code> to get the component instance</li></ul> <h2 id="drivers"><a href="#drivers" class="header-anchor">#</a> Drivers</h2> <table><thead><tr><th>Backend</th> <th>Library</th> <th>Drivername</th> <th>Async</th></tr></thead> <tbody><tr><td>Redis</td> <td><a href="https://aioredis.readthedocs.io/" target="_blank" rel="noopener noreferrer">Aioredis<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td> <td><a href="#aioredis">redis-aioredis</a></td> <td>yes</td></tr> <tr><td>Redis</td> <td><a href="https://walrus.readthedocs.io" target="_blank" rel="noopener noreferrer">Walrus<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td> <td><a href="#walrus">redis-walrus</a></td> <td>no</td></tr> <tr><td>Mongodb</td> <td><a href="https://motor.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">Motor<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td> <td><a href="#motor">mongodb-async-motor</a></td> <td>yes</td></tr> <tr><td>Celery</td> <td><a href="http://www.celeryproject.org/" target="_blank" rel="noopener noreferrer">Celery<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td> <td><a href="#celery">celery</a></td> <td>no</td></tr></tbody></table> <h3 id="redis"><a href="#redis" class="header-anchor">#</a> Redis</h3> <h4 id="aioredis"><a href="#aioredis" class="header-anchor">#</a> Aioredis</h4> <h4 id="walrus"><a href="#walrus" class="header-anchor">#</a> Walrus</h4> <ul><li>Very powerful redis library with support for a lot of additional features</li></ul> <h3 id="mongodb"><a href="#mongodb" class="header-anchor">#</a> Mongodb</h3> <h4 id="motor"><a href="#motor" class="header-anchor">#</a> Motor</h4> <h3 id="celery-tasks"><a href="#celery-tasks" class="header-anchor">#</a> Celery / tasks</h3> <p>If you need basic background tasks, look into <a href="https://fastapi.tiangolo.com/tutorial/background-tasks/" target="_blank" rel="noopener noreferrer">FastAPI/Starlette BackgroundTasks<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> instead.</p> <p>There is builtin support for running celery tasks, see the <a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/celery-task" target="_blank" rel="noopener noreferrer">sample-project<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> for details, view info about the sample project <a href="/guide/examples.html#celery-task">here</a></p> <p>The opa-stack's api-container can run in <code>worker mode</code>, ie, it will run a celery worker with the same codebase as the rest of the api. This is by far the simplest setup, but feel free to run your own workers if you need.</p> <ul><li>Set environment-variable <code>MODE=worker</code> to start it as a worker</li> <li>Set additional celery params (<code>celery worker -A opa.main ${CELERY_PARAMS}</code>)</li></ul> <p>Some important notes about using celery in opa-stack is:</p> <ul><li>The tasks must be defined in <code>tasks.py</code>, ie, you will need your plugin to be a python package (folder with <code>__init__.py</code>).</li> <li>You can access optional-components as usual in the tasks, but only non-async drivers are working. Ie, you can't use drivers like <code>motor</code> or <code>aioredis</code> in your tasks.
+<ul><li>It is important that you DONT import any of your tasks on top of the file where your route is defined. Ie, do the <code>from packagename.tasks import sometask</code> inside your <code>@router.get('/')...</code> function!</li></ul></li> <li>The celery worker is using most of the opa-stack code. So configuration, driver-loading, hooks and so on will also work in the celery worker.</li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/opa-stack/opa-stack.github.io/edit/source/guide/optional-components-reference.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/12/2020, 9:08:02 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/plugins.html" class="prev">
+        Plugins
+      </a></span> <span class="next"><a href="/guide/examples.html">
+        Examples
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.4e27d91f.js" defer></script><script src="/assets/js/3.ab9a3b8e.js" defer></script><script src="/assets/js/13.e8dd8de7.js" defer></script>
+  </body>
+</html>

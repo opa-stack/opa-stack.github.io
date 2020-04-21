@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plugins | opa-stack</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.3.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a2b7d327.css" as="style"><link rel="preload" href="/assets/js/app.4e27d91f.js" as="script"><link rel="preload" href="/assets/js/3.ab9a3b8e.js" as="script"><link rel="preload" href="/assets/js/14.5b8196d5.js" as="script"><link rel="prefetch" href="/assets/js/10.15db5ece.js"><link rel="prefetch" href="/assets/js/11.b8f9ff69.js"><link rel="prefetch" href="/assets/js/12.3a8e2acb.js"><link rel="prefetch" href="/assets/js/13.e8dd8de7.js"><link rel="prefetch" href="/assets/js/15.79dc74f3.js"><link rel="prefetch" href="/assets/js/16.bff4d9f4.js"><link rel="prefetch" href="/assets/js/17.7b74f075.js"><link rel="prefetch" href="/assets/js/18.718f9d0a.js"><link rel="prefetch" href="/assets/js/4.ae135471.js"><link rel="prefetch" href="/assets/js/5.3e16bd23.js"><link rel="prefetch" href="/assets/js/6.52732cdc.js"><link rel="prefetch" href="/assets/js/7.b108359b.js"><link rel="prefetch" href="/assets/js/8.1da2c1df.js"><link rel="prefetch" href="/assets/js/9.76f32432.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.abc87a80.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a2b7d327.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">opa-stack</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Guide" class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/guide/index.html" class="nav-link">
+  Intro
+</a></li><li class="dropdown-item"><h4>
+          Development
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/development.html" class="nav-link">
+  Info
+</a></li><li class="dropdown-subitem"><a href="/guide/components.html" class="nav-link">
+  Components (optional)
+</a></li><li class="dropdown-subitem"><a href="/guide/new-project.html" class="nav-link">
+  Creating a new project
+</a></li><li class="dropdown-subitem"><a href="/guide/examples.html" class="nav-link">
+  Example projects
+</a></li></ul></li><li class="dropdown-item"><h4>
+          API details
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/guide/api/configuration.html" class="nav-link">
+  Configuration
+</a></li><li class="dropdown-subitem"><a href="/guide/api/plugin-system.html" class="nav-link">
+  Plugin system
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more-info/" class="nav-link">
+  Learn more
+</a></div> <a href="https://github.com/opa-stack/opa-stack" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/guide/" class="sidebar-link">Intro</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/#getting-started" class="sidebar-link">Getting started</a></li></ul></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Development</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/development.html" class="sidebar-link">Info</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#commands" class="sidebar-link">Commands</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#resources" class="sidebar-link">Resources</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#builtin-libs-utils" class="sidebar-link">Builtin libs/utils</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#logging" class="sidebar-link">Logging</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/development.html#development-mode-env-dev" class="sidebar-link">Development mode (ENV=dev)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#ptvsd" class="sidebar-link">PTVSD</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#better-exceptions" class="sidebar-link">Better exceptions</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/development.html#plugins" class="sidebar-link">Plugins</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#interactive-shell" class="sidebar-link">Interactive shell</a></li></ul></li><li><a href="/guide/new-project.html" class="sidebar-link">New project</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/new-project.html#orchestrators" class="sidebar-link">Orchestrators</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/new-project.html#docker-compose" class="sidebar-link">docker-compose</a></li><li class="sidebar-sub-header"><a href="/guide/new-project.html#kubernetes-helm" class="sidebar-link">kubernetes (helm)</a></li></ul></li></ul></li><li><a href="/guide/plugins.html" class="active sidebar-link">Plugins</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/plugins.html#types-of-plugins" class="sidebar-link">Types of plugins</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/plugins.html#importables" class="sidebar-link">Importables</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#hook-definition" class="sidebar-link">Hook Definition</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#hook" class="sidebar-link">Hook</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#drivers-optional-components" class="sidebar-link">Drivers / Optional-components</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#api-s-and-routes" class="sidebar-link">API's and routes</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#metadata" class="sidebar-link">Metadata</a></li><li class="sidebar-sub-header"><a href="/guide/plugins.html#examples" class="sidebar-link">Examples</a></li></ul></li><li><a href="/guide/optional-components-reference.html" class="sidebar-link">Optional-components reference</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#configuration" class="sidebar-link">Configuration</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#usage" class="sidebar-link">Usage</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#drivers" class="sidebar-link">Drivers</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#redis" class="sidebar-link">Redis</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#mongodb" class="sidebar-link">Mongodb</a></li><li class="sidebar-sub-header"><a href="/guide/optional-components-reference.html#celery-tasks" class="sidebar-link">Celery / tasks</a></li></ul></li></ul></li><li><a href="/guide/examples.html" class="sidebar-link">Examples</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#hello-world" class="sidebar-link">Hello world</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#files" class="sidebar-link">Files</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/examples.html#timekeeper" class="sidebar-link">Timekeeper</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#files-2" class="sidebar-link">Files</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/examples.html#redis" class="sidebar-link">Redis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#files-3" class="sidebar-link">Files</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/examples.html#background-tasks" class="sidebar-link">Background tasks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/examples.html#files-4" class="sidebar-link">Files</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/examples.html#celery-task" class="sidebar-link">Celery task</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>API details</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="plugins"><a href="#plugins" class="header-anchor">#</a> Plugins</h1> <p>A <code>plugin</code> is how you make things using opa-stack.
+They are just python packages or modules available to opa-stack. See <a href="./api/plugin-system">general info</a> about the plugin-system to see how it works.</p> <h2 id="types-of-plugins"><a href="#types-of-plugins" class="header-anchor">#</a> Types of plugins</h2> <p>Different types of plugins are initialized in different order. Example, all hooks are initialized before drivers are initialized. Drivers are done when setup is run.</p> <h3 id="importables"><a href="#importables" class="header-anchor">#</a> Importables</h3> <p>Every <code>PLUGIN_PATHS</code> are loaded into pythons <code>sys.path</code> and imported. Therefor, you can also have plugins that exposes functionality to other plugins.</p> <p>So, if you got</p> <ul><li><code>/plugins/common/math_utils.py</code> with a function <code>double()</code></li> <li><code>/plugins/secure/grade_calculations.py</code> that adds a route. It can use <code>from math_utils import double</code> without problems</li></ul> <h3 id="hook-definition"><a href="#hook-definition" class="header-anchor">#</a> Hook Definition</h3> <p>Hooks need to be defined before you can use them, so for this, you need a hook-definition.</p> <p>A simple example looks like</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa<span class="token punctuation">.</span>core<span class="token punctuation">.</span>plugin <span class="token keyword">import</span> HookDefinition
+
+<span class="token keyword">class</span> <span class="token class-name">name_hook</span><span class="token punctuation">(</span>HookDefinition<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    required <span class="token operator">=</span> <span class="token boolean">True</span>
+    is_async <span class="token operator">=</span> <span class="token boolean">False</span>
+    name <span class="token operator">=</span> <span class="token string">'fullname'</span>
+</code></pre></div><p>Parameters:</p> <ul><li>required (default: False): Set to True if you don't want the application to be able to start unless there is a hook for this definition.</li> <li>is_async (default: False): Set to True if the hook should be an async function.</li> <li>name (default: function-name): Override the function-name as the name of the hook.</li></ul> <h3 id="hook"><a href="#hook" class="header-anchor">#</a> Hook</h3> <p>Hooks are used if you want to replace or provide a custom function for a part of your code.</p> <p>Example, think of a tiny generic app like this:</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa<span class="token punctuation">.</span>core<span class="token punctuation">.</span>plugin <span class="token keyword">import</span> <span class="token punctuation">(</span>
+    get_plugin_manager<span class="token punctuation">,</span>
+    get_router<span class="token punctuation">,</span>
+    call_hook<span class="token punctuation">,</span>
+    Hook
+<span class="token punctuation">)</span>
+
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/get-fullname/{firstname}/{surname}&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">show_name</span><span class="token punctuation">(</span>
+    firstname<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> surname<span class="token punctuation">:</span> <span class="token builtin">str</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fullname <span class="token operator">=</span> call_hook<span class="token punctuation">(</span><span class="token string">'fullname'</span><span class="token punctuation">,</span> firstname<span class="token punctuation">,</span> surname<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> fullname<span class="token punctuation">}</span>
+</code></pre></div><p>It calculates <code>fullname</code> based on whatever the hook called <code>fullname</code> returns.
+The <code>fullname</code> is already defined above in <code>HookDefinition</code>, so now lets define the function itself in a completly different plugin.</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa<span class="token punctuation">.</span>core<span class="token punctuation">.</span>plugin <span class="token keyword">import</span> Hook
+
+<span class="token keyword">class</span> <span class="token class-name">fullname_hook</span><span class="token punctuation">(</span>Hook<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'fullname'</span>
+    order <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> firstname<span class="token punctuation">,</span> lastname<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>firstname<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>lastname<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+</code></pre></div><p>Some key takeaways:</p> <ul><li>If the hook-definition's <code>is_async</code> is True, you will get an error if the run function is not async (<code>async def run(...)</code>)</li> <li><code>call_hook</code> is for sync, there is also a <code>call_hook_async</code> for async</li> <li>Whatever arguments that the call-functions gets are what the run functions will get.</li> <li>If there are multiple hooks for a single definition, the one with the highest <code>order</code> wins (default order is 0).</li> <li>The <code>HookDefinition</code> and the route that calls <code>call_hook</code> are usually together in the same plugin. The hooks are normally separate plugins.</li> <li>A typical usecase is to also define a <code>Hook</code> with default order of <code>-1</code> togehter with the <code>HookDefinition</code>, that way, your pm.call will have a default hook</li> <li>There can only be 1 hook definition per <code>name</code> or you will get an error.</li></ul> <p><a href="https://github.com/opa-stack/opa-stack/tree/master/examples/docker-compose/hooks" target="_blank" rel="noopener noreferrer">Complete example<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>Now, this was a really simple example. But it can be used for many things</p> <ul><li>Language or environment specific code (load different hook-plugins based on tags)</li> <li>A hierarcy of internal plugins, where you define some of their behavior dynamicly using a simple environment variable to choose an env</li> <li>Provide additional info if running in dev-env</li> <li>Provide a solid base, for others to built small custom plugins on</li></ul> <h3 id="drivers-optional-components"><a href="#drivers-optional-components" class="header-anchor">#</a> Drivers / Optional-components</h3> <p>More than often, you will need a database, cache backend (redis) or another 3rd party component.
+You can use one of the <a href="./optional-components-reference">built-in drivers</a>, or you can make your own very easiely.</p> <h4 id="configuration"><a href="#configuration" class="header-anchor">#</a> Configuration</h4> <p>The default configuration loads a couple of drivers if it can find the component. That means that, if opa-stack think redis is available, it will try to connect to it. The redis drivers just uses a simple host-lookup for this check (check if <code>redis</code> avalable).</p> <p>All drivers are configured under the <code>OPTIONAL_COMPONENTS</code> in the configuration. The default configuration is <a href="https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/default-settings.yaml" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, or see below.</p> <details class="custom-block details"><summary>docker-compose.yaml</summary> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">default</span><span class="token punctuation">:</span>
+  <span class="token key atrule">MODE</span><span class="token punctuation">:</span> <span class="token string">&quot;prod&quot;</span>
+  <span class="token key atrule">PROJECT_NAME</span><span class="token punctuation">:</span> <span class="token string">&quot;opa-stack&quot;</span>
+  <span class="token key atrule">PROJECT_DESCRIPTION</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PROJECT_VERSION</span><span class="token punctuation">:</span> <span class="token string">&quot;0.1.0&quot;</span>
+
+  <span class="token comment"># Urls to automatic documentation. Set to null to disable</span>
+  <span class="token key atrule">DOCS_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/docs&quot;</span>
+  <span class="token key atrule">REDOC_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/redoc&quot;</span>
+  <span class="token key atrule">OPENAPI_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;/openapi.json&quot;</span> <span class="token comment"># Can only be null if DOCS_URL and REDOC_URL is also null</span>
+
+  <span class="token key atrule">OPENAPI_PREFIX</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+  <span class="token key atrule">PLUGIN_PATHS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token key atrule">PLUGIN_WHITELIST_LIST</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_WHITELIST_RE</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PLUGIN_WHITELIST_TAGS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_LIST</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_RE</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+  <span class="token key atrule">PLUGIN_BLACKLIST_TAGS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token comment"># CORS</span>
+  <span class="token key atrule">ALLOW_ORIGINS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+  <span class="token key atrule">ALLOW_CREDENTIALS</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">ALLOW_METHODS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+  <span class="token key atrule">ALLOW_HEADERS</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">]</span>
+
+  <span class="token key atrule">SECRET_KEY</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+
+  <span class="token comment"># Configuration for optional components..</span>
+  <span class="token comment"># They all have a helper-file in ../utils/{component_name.lower()}.py, so check</span>
+  <span class="token comment"># in them if you wonder how these values are used. They are also listed in the docs</span>
+  <span class="token comment"># @ https://opa-stack.github.io/guide/components.html</span>
+  <span class="token comment">#</span>
+  <span class="token comment"># The LOAD option is always present, and can be one of auto|yes|no, all defaulting to 'auto'.</span>
+  <span class="token comment">#   * auto: Makes opa-stack look for the component using a simple dns-check or other simple checks</span>
+  <span class="token comment">#           Ie.. Check if we &quot;should&quot; be able to use this component.</span>
+  <span class="token comment">#           It will then try to connect as if you had written &quot;yes&quot;, ie, it fails if it is not able to..</span>
+  <span class="token comment">#   * yes: Makes the coponent required</span>
+  <span class="token comment">#   * no: Makes it not check at all.</span>
+
+  <span class="token key atrule">OPTIONAL_COMPONENTS</span><span class="token punctuation">:</span>
+    <span class="token key atrule">MONGODB</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;mongodb-async-motor&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;mongodb://mongo:mongo@mongo:27017/opa&quot;</span>
+
+    <span class="token key atrule">WALRUS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-walrus&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis&quot;</span>
+
+    <span class="token key atrule">AIOREDIS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-aioredis&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis&quot;</span>
+
+    <span class="token key atrule">CELERY</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;celery&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">BACKEND_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://redis/1&quot;</span>
+        <span class="token key atrule">BROKER_URL</span><span class="token punctuation">:</span> <span class="token string">&quot;pyamqp://guest@rabbitmq//&quot;</span>
+
+  <span class="token comment"># Used different places, currently:</span>
+  <span class="token comment">#  * Setting FastAPI/Starlette debug-mode (https://www.starlette.io/applications/)</span>
+  <span class="token key atrule">DEBUG</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># Turns on better exceptions, ie, prettier, and with some more info (like variables)</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># Python Tools for Visual Studio debug server, running on port 5678</span>
+  <span class="token key atrule">PTVSD</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token comment"># External js files are loaded from the internet as default</span>
+  <span class="token key atrule">SELF_HOSTED</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+<span class="token key atrule">dev</span><span class="token punctuation">:</span>
+  <span class="token key atrule">MODE</span><span class="token punctuation">:</span> <span class="token string">&quot;dev&quot;</span>
+  <span class="token key atrule">PTVSD</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">BETTER_EXCEPTIONS_MAX_LENGTH</span><span class="token punctuation">:</span> <span class="token number">1000</span>
+  <span class="token key atrule">PLUGIN_PATHS</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token string">&quot;/data/opa/demo-plugins&quot;</span>
+    <span class="token punctuation">-</span> dynaconf_merge
+</code></pre></div></details> <h5 id="simple-example"><a href="#simple-example" class="header-anchor">#</a> Simple example</h5> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">myenv</span><span class="token punctuation">:</span>
+  <span class="token key atrule">OPTIONAL_COMPONENTS</span><span class="token punctuation">:</span>
+    <span class="token key atrule">dynaconf_merge</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">MYREDIS</span><span class="token punctuation">:</span>
+      <span class="token key atrule">LOAD</span><span class="token punctuation">:</span> <span class="token string">&quot;auto&quot;</span>
+      <span class="token key atrule">DRIVER</span><span class="token punctuation">:</span> <span class="token string">&quot;redis-walrus&quot;</span>
+      <span class="token key atrule">OPTS</span><span class="token punctuation">:</span>
+        <span class="token key atrule">URL</span><span class="token punctuation">:</span> <span class="token string">&quot;redis://some-external-redis&quot;</span>
+</code></pre></div><p>In the example above:</p> <ul><li>It will use the <code>redis-walrus</code> driver</li> <li>Give you an instance of it named <code>myredis</code> available in your plugins</li> <li>Load if the hostname <code>some-external-redis</code> answers</li> <li>Merge with the other optional-components already defined (<code>dynaconf_merge</code>)</li></ul> <h4 id="using"><a href="#using" class="header-anchor">#</a> Using</h4> <p>To use an optional-component (lets say the one defined above), load it as a dependency in your route, like</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/counter&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">counter_sync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    myredis <span class="token operator">=</span> get_instance<span class="token punctuation">(</span><span class="token string">'myredis'</span><span class="token punctuation">)</span>
+    counter <span class="token operator">=</span> myredis<span class="token punctuation">.</span>incr<span class="token punctuation">(</span><span class="token string">'counter'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'Counter is </span><span class="token interpolation"><span class="token punctuation">{</span>counter<span class="token punctuation">}</span></span><span class="token string">'</span></span>
+</code></pre></div><p>Note that <code>myredis</code> is the component itself, not just the instance. There might be other functions available, like utility-functions.</p> <p>Take a look at the <a href="./optional-components-reference">optional-components reference</a> for a list of all builtin drivers/optional-components</p> <h4 id="adding-a-driver"><a href="#adding-a-driver" class="header-anchor">#</a> Adding a driver</h4> <p>You can add a driver using a plugin. For probably the best example, see the <a href="https://github.com/opa-stack/opa-stack/blob/master/api/data/opa/plugins/driver_redis.py" target="_blank" rel="noopener noreferrer">driver-redis<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> plugin at github (or below).</p> <details class="custom-block details"><summary>driver_redis.py</summary> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">import</span> logging
+<span class="token keyword">import</span> aioredis <span class="token keyword">as</span> aioredislib
+<span class="token keyword">import</span> walrus <span class="token keyword">as</span> walruslib
+
+<span class="token keyword">from</span> opa <span class="token keyword">import</span> Driver
+<span class="token keyword">from</span> opa<span class="token punctuation">.</span>utils <span class="token keyword">import</span> host_exists
+
+
+<span class="token keyword">class</span> <span class="token class-name">Aioredis</span><span class="token punctuation">(</span>Driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'redis-aioredis'</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">connect</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> host_exists<span class="token punctuation">(</span>self<span class="token punctuation">.</span>opts<span class="token punctuation">.</span>URL<span class="token punctuation">,</span> <span class="token string">'database-url'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        self<span class="token punctuation">.</span>instance <span class="token operator">=</span> <span class="token keyword">await</span> aioredislib<span class="token punctuation">.</span>create_redis_pool<span class="token punctuation">(</span>self<span class="token punctuation">.</span>opts<span class="token punctuation">.</span>URL<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">disconnect</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>wait_closed<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Walrus</span><span class="token punctuation">(</span>Driver<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">'redis-walrus'</span>
+
+    <span class="token keyword">def</span> <span class="token function">connect</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> host_exists<span class="token punctuation">(</span>self<span class="token punctuation">.</span>opts<span class="token punctuation">.</span>URL<span class="token punctuation">,</span> <span class="token string">'database-url'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        self<span class="token punctuation">.</span>instance <span class="token operator">=</span> walruslib<span class="token punctuation">.</span>Database<span class="token punctuation">.</span>from_url<span class="token punctuation">(</span>self<span class="token punctuation">.</span>opts<span class="token punctuation">.</span>URL<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">validate</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>client_id<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div></details> <p>In driver_redis you will see that a driver is just a class inherited from <code>opa.Driver</code>:</p> <ul><li><code>pm</code> is the plugin-manager instance, that is available as <code>self.pm</code> inside the driver-instance</li> <li><code>opts</code> will be populated with the original OPTS for this driver</li> <li><code>connect()</code> <ul><li>Can by <code>async</code> or <code>sync</code>.</li> <li>Is run when we load the application.</li> <li><code>opts</code> is the opts configured, example <code>opts.URL</code></li> <li>If the configuration <code>LOAD</code> is set to <code>auto</code> <ul><li>This function needs to return False to signal that the pre-check (ie, hostname check) failed and it should not connect.. If it does not return False, we will validate try to validate the connection even if <code>LOAD=auto</code></li></ul></li> <li>Is responsible for setting <code>self.instance</code>.</li></ul></li> <li><code>validate()</code>:
+<ul><li>Needs to be async if connect is async</li> <li>Will run only if
+<ul><li><code>LOAD</code> config is <code>yes</code></li> <li>or if connect <code>did not</code> return <code>False</code></li></ul></li> <li>Should raise an exception of any kind if it is not able to validate the connection.</li></ul></li> <li><code>disconnect(self)</code>: Not implemented yet</li> <li><code>get_instance(self)</code>: Normally it just returns <code>self.instance</code>, but if you want, you can override it</li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>If you want some logic in your driver, you can use <code>hooks</code>, just use <code>scall_hook</code> or <code>call_hook_async</code> as described <a href="#hook">above</a>.</p></div> <h3 id="api-s-and-routes"><a href="#api-s-and-routes" class="header-anchor">#</a> API's and routes</h3> <p>If you want to add a route accessible via an api, there are multiple ways to do it.</p> <p>Expose an <code>APIRouter</code> instance named <code>router</code> in your plugin is probably the easiest. It will work for most of the usecases.</p> <div class="language-py extra-class"><pre class="language-py"><code><span class="token keyword">from</span> opa <span class="token keyword">import</span> get_router
+router <span class="token operator">=</span> get_router<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'Hello'</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>The <code>get_router</code> function is nothing magical, it is basicly the same as <code>fastapi.APIRouter()</code>.</p></div> <p>Another way is to use the <code>Setup</code> plugin. It will get the main fastapi <code>app</code> object as input, which you can use to add a route or do more powerfull things.</p> <h2 id="metadata"><a href="#metadata" class="header-anchor">#</a> Metadata</h2> <p>A plugin can have metadata attached to it in form of a <code>json</code> file.</p> <ul><li>If it's a flat <code>.py</code> file. Create a file with <code>-meta.json</code> <ul><li>Exammple on <code>my_utils.py</code> you will have <code>my_utils-meta.json</code></li></ul></li> <li>If it is a python package, make <code>/meta.json</code> in the same folder as the package.</li></ul> <p>Currently, you can only define tags as metadata, which can be used for filtering (<code>PLUGIN_WHITELIST_TAGS</code> and <code>PLUGIN_BLACKLIST_TAGS</code>) which plugins to load.</p> <p>Example</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;utils&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="examples"><a href="#examples" class="header-anchor">#</a> Examples</h2> <ul><li><a href="https://github.com/opa-stack/opa-stack/tree/master/api/data/opa/demo-plugins" target="_blank" rel="noopener noreferrer">demo-plugins<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://github.com/opa-stack/opa-stack/tree/master/api/data/opa/plugins" target="_blank" rel="noopener noreferrer">core-plugins<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://github.com/opa-stack/opa-stack/tree/master/examples" target="_blank" rel="noopener noreferrer">examples<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/opa-stack/opa-stack.github.io/edit/source/guide/plugins.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/7/2020, 9:23:21 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/new-project.html" class="prev">
+        New project
+      </a></span> <span class="next"><a href="/guide/optional-components-reference.html">
+        Optional-components reference
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.4e27d91f.js" defer></script><script src="/assets/js/3.ab9a3b8e.js" defer></script><script src="/assets/js/14.5b8196d5.js" defer></script>
+  </body>
+</html>
